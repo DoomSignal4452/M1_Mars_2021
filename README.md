@@ -6,6 +6,11 @@ Just a Simple Page:
 <br><h2>Grunnferdigheter i Javascript (Uke 2)</h2>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/1_Onclick+innerHTML.html">1 - Onclick og kjøre funksjon som endrer innerHTML til element ut fra Id</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/2_Alternative-eventhandlere.html">2 - Alternative eventhandlere: onchange osv.</a>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/3_Nøkkelordet-this-.html">3 - Nøkkelordet "this"</a>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/4_Variabel_utenfor_funksjon_og_innenfor_funksjon.html">
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/3_Nøkkelordet-this.html">3 - Nøkkelordet "this"</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/4_Variabel-utenfor-funksjon-og-innenfor-funksjon.html">
         4 - Variabel utenfor funksjon og innenfor funksjon, samt sette sammen tekst av flere deler, lagre tekst og tall i variabel</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/5_Kode-som-kjører-når-siden-lastes.html">5 - Kode som kjøres når siden lastes vs kode i en funksjon</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/6_Bygge-HTML-dynamisk.html">6 - Sette sammen tekst av flere deler og bruke dette til å bygge HTML dynamisk</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/7_Sette-variabel-til-resultat-av-et-regnestykke.html">7 - Sette variabel til resultat av et regnestykke</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/8_Sette-variabel-til-tilfeldig-tall – Kopi.html">8 - Sette variabel til tilfeldig tall</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/9_Endre-andre-ting-enn-innerHTML.html">9 - Endre andre ting enn innerHTML: value, style</a>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+  
+
+</style>
+
+</head>
+
+<body onload= time()>
+
+    <div class="page">
+
+        <h2>5 - Kode som kjøres når siden lastes vs kode i en funksjon</h2>
+
+        <div class="whitebox">
+            <div id="a"></div>
+        </div>
+
+        <div class="whitebox">
+            <img style="height: 400px;" src="http://news.minneapolismn.gov/wp-content/uploads/2018/08/KittenFluffs4.jpg" alt="Kittens in basket" title="Kittens in basket" >
+        </div>        
+        
+            <script>
+
+                function time() {
+                 document.getElementById('a').innerHTML += "<p> " + new Date().toTimeString() + "</p>"
+                 }
+                time()
+               
+                
+            </script> 
+    </div>
+
+</body>
+
+</html>

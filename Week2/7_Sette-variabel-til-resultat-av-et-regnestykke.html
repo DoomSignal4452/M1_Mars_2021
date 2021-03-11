@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+.SlideSized {
+    background-color: rgb(156, 147, 214);
+    padding: 5px;
+    border: solid darkslateblue;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="page">
+
+        <h2>7 - Sette variabel til resultat av et regnestykke</h2>
+
+        <div class="whitebox">
+            <input id="height1" type="range" min="50" max="1000" step="1" oninput="slidesize()" value="200" />
+            <input id="width1" type="range" min="150" max="975" step="1" oninput="slidesize()" value="500" />
+
+        </div>
+        <div id="SizeWrap"></div>
+
+
+
+    </div>
+
+    <script>
+        var divsize = document.getElementById('SizeWrap');
+        var heightslide = document.getElementById('height1');
+        var widthslide = document.getElementById('width1');
+
+
+        slidesize();
+
+        function slidesize() {
+            divsize.innerHTML = '<div class="SlideSized" style="' + 'width: ' + widthslide.value + 'px;' + 'height: ' + heightslide.value + 'px ;">'
+
+                + '<div>' + 'Height is = ' + heightslide.value + ' px' + '</div>'
+                + '<div>' + 'Width is = ' + widthslide.value + ' px' + '</div>'
+                + '</div>';
+        }
+    </script> 
+</body>
+
+</html>

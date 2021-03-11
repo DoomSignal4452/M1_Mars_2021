@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+.stilig {
+    background-color: blueviolet;
+}
+
+
+div.selected::before {
+    content: "🡆";
+}
+div.selected::after {
+    content: "🡄";
+}
+</style>
+
+</head>
+
+<body>
+    <div class="page">
+
+        <h2>Endre andre ting enn innerHTML: value, style</h2>
+
+        <div class="whitebox">
+            <div id="bla">Bla bla bla</div>
+            <input id="chk" type="checkbox" onchange="toggleStyle()" />
+        </div>
+
+
+
+    </div>
+
+    <script>
+        function toggleStyle() {
+            var isChecked = document.getElementById('chk').checked;
+            document.getElementById('bla').classList.toggle('stilig', isChecked);
+        }
+
+    </script> 
+</body>
+
+</html>

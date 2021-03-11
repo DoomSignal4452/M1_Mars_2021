@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+button.lock {
+    outline: none;
+    background-color: #496463;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    transition-duration: 0.2s;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 2px solid;
+    border-color: #496463;
+    box-shadow: 0 5px #999;
+  }
+  button.lock:hover {
+    background-color: #e7e7e7; 
+    color: rgb(22, 36, 36);
+
+  }
+  button.lock:active {
+    /*background-color: #3e8e41;*/
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
+  div.keypad {
+      background-color: lightgray;
+      border: 2px solid; /* DO NOT FORGET TO SPECIFY WHAT SORT OF BORDER YOU WANT */
+      border-color: darkslategray;
+      border-radius: 5px;
+      padding: 10px;
+      width: 140px;
+     /* padding-bottom: 50px;*/
+  }
+  button.resetb {
+    outline: none;
+    background-color: #328380;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    transition-duration: 0.2s;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border: 2px solid;
+    border-color: #328380;
+    box-shadow: 0 5px #999;
+    width: 134px;
+  }
+  button.resetb:hover {
+    background-color: #e7e7e7; 
+    color: rgb(22, 36, 36);
+
+  }
+  button.resetb:active {
+    /*background-color: #3e8e41;*/
+    box-shadow: 0 1px #666;
+    transform: translateY(4px);
+  }
+  p.keycode {
+    background-color: rgb(255, 255, 255);
+    border: 2px solid; /* DO NOT FORGET TO SPECIFY WHAT SORT OF BORDER YOU WANT */
+    border-color: darkslategray;
+    border-radius: 3px;
+    padding: 2px;
+    height: 17px;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h2>4 - Variabel utenfor funksjon og innenfor funksjon, 
+            <br>samt sette sammen tekst av flere deler, lagre tekst og tall i variabel</h2>
+
+        <div class="whitebox">
+
+            <div class="keypad">
+                <button class="lock" onclick="keyPress(1)">1</button>
+                <button class="lock" onclick="keyPress(2)">2</button>
+                <button class="lock" onclick="keyPress(3)">3</button>
+            <br>
+                <button class="lock" onclick="keyPress(4)">4</button>
+                <button class="lock" onclick="keyPress(5)">5</button>
+                <button class="lock" onclick="keyPress(6)">6</button>
+            <br>
+                <button class="lock" onclick="keyPress(7)">7</button>
+                <button class="lock" onclick="keyPress(8)">8</button>
+                <button class="lock" onclick="keyPress(9)">9</button>
+            
+                <button class="resetb" id="clearkey" onclick="clearIt()">Reset</button>
+            
+                <p id="lockout" class="keycode"></p>
+            </div>
+                    
+        </div>
+        
+
+    </div>
+
+
+<script>
+    function keyPress(buttonNumber) {
+        document.getElementById('lockout').innerHTML += buttonNumber;
+    }
+    function clearIt() {
+        document.getElementById('lockout').innerHTML = '';
+    }
+
+// document.getElementById("lock1").onclick = function() {key1()}
+// document.getElementById("lock2").onclick = function() {key2()}
+// document.getElementById("lock3").onclick = function() {key3()}
+
+// document.getElementById("lock4").onclick = function() {key4()}
+// document.getElementById("lock5").onclick = function() {key5()}
+// document.getElementById("lock6").onclick = function() {key6()}
+
+// document.getElementById("lock7").onclick = function() {key7()}
+// document.getElementById("lock8").onclick = function() {key8()}
+// document.getElementById("lock9").onclick = function() {key9()}
+
+// document.getElementById("clearkey").onclick = function() {clearpad()}
+
+// function key1() {
+//     document.getElementById('lockout').innerHTML += '1';
+// }
+// function key2() {
+//     document.getElementById('lockout').innerHTML += '2';
+// }
+// function key3() {
+//     document.getElementById('lockout').innerHTML += '3';
+// }
+
+// function key4() {
+//     document.getElementById('lockout').innerHTML += '4';
+// }
+// function key5() {
+//     document.getElementById('lockout').innerHTML += '5';
+// }
+// function key6() {
+//     document.getElementById('lockout').innerHTML += '6';
+// }
+
+// function key7() {
+//     document.getElementById('lockout').innerHTML += '7';
+// }
+// function key8() {
+//     document.getElementById('lockout').innerHTML += '8';
+// }
+// function key9() {
+//     document.getElementById('lockout').innerHTML += '9';
+// }
+
+// function clearpad() {
+//     document.getElementById('lockout').innerHTML = '';
+// }
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+.autosized {
+    background-color: lightgreen;
+    border: solid darkgreen;
+}
+
+</style>
+
+</head>
+
+<body>
+    <div class="page">
+
+        <h2>7 - Sette variabel til resultat av et regnestykke</h2>
+
+        <button onclick="auotsize()">Resize GreenBox</button>
+
+        <div id="autoWrap"></div>
+
+
+
+    </div>
+
+    <script>
+var auotdiv = document.getElementById('autoWrap');
+
+auotsize();
+
+function auotsize() {
+    var awidth = 100 + Math.floor(Math.random() * 800);
+    var aheight = 100 + Math.floor(Math.random() * 800);
+
+
+    auotdiv.innerHTML = '<div class="autosized" style="' + 'width: ' + awidth + 'px;' + 'height: ' + aheight + 'px;">'
+
+        + '<div>' + 'Height is = ' + aheight + ' px' + '</div>'
+        + '<div>' + 'Width is = ' + awidth + ' px' + '</div>'
+        + '</div>';
+}
+
+    </script> 
+</body>
+
+</html>
