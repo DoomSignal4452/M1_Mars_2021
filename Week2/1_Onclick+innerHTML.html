@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h2>1 - Onclick og kjøre funksjon som endrer innerHTML til element ut fra Id</h1>
+
+        <div class="whitebox">
+            <h3>Calico cats, which refers to a color pattern on the fur <br>and not a breed, are mostly what?</h3>
+            <p id="s1a1" onclick="checkAnswers1a1()">Female</p>
+            <p id="s1a2" onclick="checkAnswers1a2()">Male</p>
+        </div>
+
+        <div class="whitebox">
+            <h3>What name is given to domestic cats <br>that were born in or have reverted to a wild state?</h3>
+            <p id="s2a1" onclick="checkAnswers2a1()">Wild</p>
+            <p id="s2a2" onclick="checkAnswers2a2()">Feral</p>
+            <p id="s2a3" onclick="checkAnswers2a3()">Tameless</p>
+            <p id="s2a4" onclick="checkAnswers2a4()">Undomesticated</p>
+        </div>
+        
+
+    </div>
+
+
+<script>
+    function checkAnswers1a1() {
+        document.getElementById('s1a1').innerHTML = 'Correct';
+    }
+
+    function checkAnswers1a2() {
+        document.getElementById('s1a2').innerHTML = 'Wrong';
+    }
+
+    function checkAnswers2a1() {
+        document.getElementById('s2a1').innerHTML = 'Wrong';
+    }
+
+    function checkAnswers2a2() {
+        document.getElementById('s2a2').innerHTML = 'Correct';
+    }
+    function checkAnswers2a3() {
+        document.getElementById('s2a3').innerHTML = 'Wrong';
+    }
+
+    function checkAnswers2a4() {
+        document.getElementById('s2a4').innerHTML = 'Wrong';
+    }
+</script>
+
+</body>
+
+</html>

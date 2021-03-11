@@ -2,3 +2,7 @@
 
 Just a Simple Page:
 <br>https://doomsignal4452.github.io/M1_Mars_2021/index.html
+<br>
+<br><h2>Grunnferdigheter i Javascript (Uke 2)</h2>
+<br>1 - Onclick og kjøre funksjon som endrer innerHTML til element ut fra IdPage
+<br>https://doomsignal4452.github.io/M1_Mars_2021/Week2/1_Onclick+innerHTML.html

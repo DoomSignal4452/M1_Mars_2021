@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h2>2 - Alternative eventhandlere: onchange osv.</h1>
+
+        <div class="whitebox">
+            <input type="text" onchange="testOnChange()" oninput="testOnInput()" />
+            <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">Test test test</h3>
+            <h2 id="info"></h2>
+        
+            <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
+            
+        </div>
+        
+
+    </div>
+
+
+<script>
+    function testOnLoad() {
+        document.getElementById('info').innerHTML += '<li>onload</li>';
+    }
+
+    function testOnChange() {
+        document.getElementById('info').innerHTML += '<li>onchange</li>';
+    }
+
+    function testOnInput() {
+        document.getElementById('info').innerHTML += '<li>oninput</li>';
+    }
+
+    function testOnMouseOver() {
+    document.getElementById('info').innerHTML += '<li>onmouseover</li>';
+    }
+
+    function testOnMouseOut() {
+    document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+    }
+
+</script>
+
+</body>
+
+</html>
