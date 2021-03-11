@@ -12,3 +12,5 @@ Just a Simple Page:
 <br>
 <br>3 - Nøkkelordet "this"
 <br>https://doomsignal4452.github.io/M1_Mars_2021/Week2/3_Nøkkelordet-this-.html
+
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/3_Nøkkelordet-this-.html">3 - Nøkkelordet "this"</a>
