@@ -11,7 +11,17 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Just a Simple Page</title>
 
-
+<style>
+    .tinyBox {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+    border: solid rgb(22, 70, 70);
+    background-color: rgb(155, 211, 211);
+    width: fit-content;
+    height: fit-content;
+}
+</style>
 
 </head>
 
@@ -22,12 +32,15 @@
         <h2>2 - Alternative eventhandlere: onchange osv.</h1>
 
         <div class="whitebox">
-            <input type="text" onchange="testOnChange()" oninput="testOnInput()" />
-            <h3 onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">Test test test</h3>
-            <h2 id="info"></h2>
-        
-            <a href="https://www.w3schools.com/jsref/dom_obj_event.asp">Mer informasjon her</a>
-            
+            <div class="tinyBox" onmouseover="testOnMouseOver()" onmouseout="testOnMouseOut()">
+                <h3>Mouseover This
+                    <br>Press F12 to check
+                </h3>
+            </div>
+
+            <input style="margin-top: 10px; width: 165px;" type="text" onchange="testOnChange()" oninput="testOnInput()"/>
+
+                    
         </div>
         
 
@@ -36,23 +49,23 @@
 
 <script>
     function testOnLoad() {
-        document.getElementById('info').innerHTML += '<li>onload</li>';
+        console.log('onload');
     }
 
     function testOnChange() {
-        document.getElementById('info').innerHTML += '<li>onchange</li>';
+        console.log('onchange');
     }
 
     function testOnInput() {
-        document.getElementById('info').innerHTML += '<li>oninput</li>';
+        console.log('oninput');
     }
 
     function testOnMouseOver() {
-    document.getElementById('info').innerHTML += '<li>onmouseover</li>';
+    console.log('onmouseover');
     }
 
     function testOnMouseOut() {
-    document.getElementById('info').innerHTML += '<li>onmouseout</li>';
+    console.log('onmouseout');
     }
 
 </script>

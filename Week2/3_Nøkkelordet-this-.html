@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+table {
+    font-size: 300%;
+    color: darkslateblue;
+}
+</style>
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h2>3 - Nøkkelordet "this"</h2>
+
+        <div class="whitebox">
+            <p>Spesialtilfelle, this og gjøre noe med det elementet man trykker på (eller som utløser eventet)</p>
+
+            <table id="starGrid">
+                <tr><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td></tr>
+                <tr><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td></tr>
+                <tr><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td></tr>
+            </table>
+<button onclick="resetStar()">Reset Star Grid</button>
+                    
+        </div>
+        
+
+    </div>
+
+
+<script>
+        function changeStar(starID) {
+            starID.innerHTML = '✫';
+        }
+        
+        function resetStar() {
+            document.getElementById('starGrid').innerHTML = `
+                <tr><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td></tr>
+                <tr><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td></tr>
+                <tr><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td><td onmouseover="changeStar(this)">✪</td></tr>
+                `;
+        }
+
+</script>
+
+</body>
+
+</html>
