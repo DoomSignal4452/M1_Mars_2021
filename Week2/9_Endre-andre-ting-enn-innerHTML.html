@@ -12,9 +12,20 @@
     <title>Just a Simple Page</title>
 
 <style>
-.stilig {
-    background-color: blueviolet;
-}
+    .boxes {
+        width: 100px;
+        height: 100px;
+        border: solid black 2px;
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .Purple {
+        background-color: blueviolet;
+    }
+    .Blue {
+        color: Blue;
+    }
 
 
 div.selected::before {
@@ -30,11 +41,17 @@ div.selected::after {
 <body>
     <div class="page">
 
-        <h2>Endre andre ting enn innerHTML: value, style</h2>
+        <h2>9 - Endre andre ting enn innerHTML: value, style</h2>
 
         <div class="whitebox">
-            <div id="bla">Bla bla bla</div>
-            <input id="chk" type="checkbox" onchange="toggleStyle()" />
+            <div id="bla1" class="boxes" onclick="Selected(this)">Bla bla1</div>
+            <div id="bla2" class="boxes" onclick="Selected(this)">Bla bla2</div>
+            <div id="bla3" class="boxes" onclick="Selected(this)">Bla bla3</div>
+
+
+            <br>Purple Background: <input id="Purple" type="checkbox" onchange="togglePurple()" />
+            <br>Blue Text: <input id="Blue" type="checkbox" onchange="toggleBlue()" />
+
         </div>
 
 
@@ -42,9 +59,50 @@ div.selected::after {
     </div>
 
     <script>
-        function toggleStyle() {
-            var isChecked = document.getElementById('chk').checked;
-            document.getElementById('bla').classList.toggle('stilig', isChecked);
+        var isChecked;
+        var isSelected="";
+
+        function togglePurple() {
+            if (isSelected == "") {
+                alert("You must select a box to edit.");
+                document.getElementById('Purple').checked = false;
+            } else {
+                isSelected.classList.toggle('Purple');
+            }
+        }
+
+        function toggleBlue() {
+            if (isSelected == "") {
+                alert("You must select a box to edit.");
+                document.getElementById('Blue').checked = false;
+            } else {
+                isSelected.classList.toggle('Blue');
+            }
+        }
+
+        function CheckBoxSelected(SelectID) {
+            if (SelectID.classList.contains('Purple')) {
+                document.getElementById('Purple').checked = true;
+            } else {document.getElementById('Purple').checked = false;}
+            if (SelectID.classList.contains('Blue')) {
+                document.getElementById('Blue').checked = true;
+            } else {document.getElementById('Blue').checked = false;}
+        }
+
+        function Selected(SelectID) {
+            if (isSelected==SelectID) {
+                isSelected.classList.remove('selected');
+                isSelected="";
+                document.getElementById('Blue').checked = false;
+                document.getElementById('Purple').checked = false;
+                return;
+            }
+            if (isSelected != "") {
+                isSelected.classList.remove('selected');
+            }
+            isSelected = SelectID;
+            SelectID.classList.toggle('selected');
+            CheckBoxSelected(SelectID)
         }
 
     </script> 
