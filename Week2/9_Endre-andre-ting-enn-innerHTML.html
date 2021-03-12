@@ -15,9 +15,12 @@
     .boxes {
         width: 100px;
         height: 100px;
-        border: solid black 2px;
+        border: solid black 3px;
         display: inline-block;
         margin: 5px;
+        font-size: 450%;
+        cursor: pointer;
+        user-select: none;
     }
 
     .Purple {
@@ -27,13 +30,18 @@
         color: Blue;
     }
 
+    div.selected {
+        border: solid brown 3px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
 
-div.selected::before {
+
+/*div.selected::before {
     content: "🡆";
 }
 div.selected::after {
     content: "🡄";
-}
+}*/
 </style>
 
 </head>
@@ -44,12 +52,12 @@ div.selected::after {
         <h2>9 - Endre andre ting enn innerHTML: value, style</h2>
 
         <div class="whitebox">
-            <div id="bla1" class="boxes" onclick="Selected(this)">Bla bla1</div>
-            <div id="bla2" class="boxes" onclick="Selected(this)">Bla bla2</div>
-            <div id="bla3" class="boxes" onclick="Selected(this)">Bla bla3</div>
+            <div id="bla1" class="boxes" onclick="Selected(this)">⍟</div>
+            <div id="bla2" class="boxes" onclick="Selected(this)">⍟</div>
+            <div id="bla3" class="boxes" onclick="Selected(this)">⍟</div>
 
 
-            <br>Purple Background: <input id="Purple" type="checkbox" onchange="togglePurple()" />
+            <br><br>Purple Background: <input id="Purple" type="checkbox" onchange="togglePurple()" />
             <br>Blue Text: <input id="Blue" type="checkbox" onchange="toggleBlue()" />
 
         </div>
