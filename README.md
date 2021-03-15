@@ -19,6 +19,6 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/Funksjoner-med-returverdi.html">Funksjoner med returverdi</a>
 <br>
 <br><h2>Introduksjon til Model View Controller (Uke 3)</h2>
-<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Introduksjon-Model-View-Controller.html">Funksjoner med parametre</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Introduksjon-Model-View-Controller.html">Introduksjon til Model View Controller via et enkelt clickergame</a>
 
 
