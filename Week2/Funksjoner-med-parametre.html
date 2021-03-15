@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+    
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+<style>
+
+
+</style>
+
+</head>
+
+<body onload= DoTheThing(onload)>
+    <div class="page">
+
+        <h2>Funksjoner med parametre</h2>
+
+        <div class="whitebox">
+
+            <div class="tinyBox" onmouseover="DoTheThing(onmouseover)" onmouseout="DoTheThing(onmouseout)">
+                <h3>Mouseover This
+                    <br>Press F12 to check
+                </h3>
+            </div>
+
+            <input style="margin-top: 10px; width: 165px;" type="text" onchange="DoTheThing(onchange)" oninput="DoTheThing(oninput)"/>
+
+        </div>
+
+
+
+    </div>
+
+    <script>
+    function DoTheThing(TheThing) {
+        console.log(TheThing);
+    }
+
+
+
+
+    </script> 
+</body>
+
+</html>
