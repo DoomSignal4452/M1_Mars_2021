@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <!--  <base href="../">  -->
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Just a Simple Page</title>
+
+    <style>
+        h3 {
+            margin: 0%;
+        }
+
+        p.selected::before {
+            content: "🡆 ";
+        }
+
+        p.selected::after {
+            content: " 🡄";
+        }
+
+        p.selected {
+            background-color: cadetblue;
+        }
+
+        .left {
+            text-align: left;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h2>Input fra brukeren med MVC</h1>
+
+            <div id="app"></div>
+
+
+
+
+    </div>
+
+    <script>
+        // ###############################################################
+        // ##                        Model                              ##
+        // ###############################################################
+
+        // ----- Question 1 & 2 ------------------------------------------
+        let AnswerID = 0;
+        let Question1or2 = 0;
+        let currentSelection;
+
+        let formerSelection = "";
+        let Selection1 = "";
+        let Selection2 = "";
+
+        let s1a1Selected = "";
+        let s1a2Selected = "";
+
+        let s2a1Selected = "";
+        let s2a2Selected = "";
+        let s2a3Selected = "";
+        let s2a4Selected = "";
+
+        let itsThis = "";
+        // ----- END Question 1 & 2 --------------------------------------
+
+        // ----- Question 3 ----------------------------------------------
+        let ClawGuess = 0;
+        // ----- END Question 3 ------------------------------------------
+
+
+        // ###############################################################
+        // ##                       Controller                          ##
+        // ###############################################################
+
+        // ----- Question 1 & 2 ------------------------------------------
+        function selectThis(AnswerClicked) {
+            emptySelection()
+            AnswerID = findAnswerID(AnswerClicked);
+            Question1or2 = Clickedis1or2(AnswerID);
+            currentSelection = AnswerClicked;
+
+            console.log(AnswerID + ' <- AnswerID');
+            console.log(Question1or2 + ' <- Question1or2');
+
+            isClicked1or2()
+
+            console.log(Selection1 + ' <- Selection1');
+            console.log(Selection2 + ' <- Selection2');
+
+            classIDtoChange = makingTheClassID(Selection1)
+            SetToSelected(classIDtoChange);
+
+            classIDtoChange = makingTheClassID(Selection2)
+            SetToSelected(classIDtoChange);
+
+            updateView();
+            console.log('END OF SelectThis()')
+        }
+
+        function findAnswerID(AnswerClicked) {
+            return AnswerClicked.getAttribute('id');
+        }
+
+        function Clickedis1or2(AnswerID) {
+            return AnswerID.substr(1, 1);
+        }
+
+        function makingTheClassID(AnswerID) {
+            return AnswerID + 'Selected';
+        }
+
+        function SetToSelected(classIDtoChange) {
+            eval(classIDtoChange + " ='selected'");
+        }
+
+        function isClicked1or2() {
+            if (Question1or2 == 1) {
+                if (AnswerID == Selection1) {
+                    currentSelection.classList.remove('selected');
+                    Selection1 = "";
+                } else {
+                    currentSelection.classList.add('selected');
+                    Selection1 = AnswerID
+                }
+            }
+            else if (Question1or2 == 2) {
+                if (AnswerID == Selection2) {
+                    Selection2 = "";
+                } else {
+                    Selection2 = AnswerID
+                }
+            }
+            else {
+                console.log('Question1or2 is not 1 or 2')
+            }
+        }
+
+        function emptySelection() {
+            s1a1Selected = "";
+            s1a2Selected = "";
+
+            s2a1Selected = "";
+            s2a2Selected = "";
+            s2a3Selected = "";
+            s2a4Selected = "";
+        }
+        // ----- END Question 1 & 2 --------------------------------------
+
+        // ----- Question 3 ----------------------------------------------
+
+        function slideClaw() {
+            ClawGuess = document.getElementById("ClawSlider").value;
+            document.getElementById("ClawNR").innerHTML = '<p>' + ClawGuess + '</p>';
+        }
+
+        // ----- END Question 3 ------------------------------------------
+
+        // ###############################################################
+        // ##                          View                             ##
+        // ###############################################################
+
+        updateView();
+        slideClaw();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+            <div class="whitebox">
+                <h3 class=" left">1.</h3>
+                <h3>Calico cats, which refers to a color pattern on the fur <br>and not a breed, are mostly what?</h3>
+                <p id="s1a1" class="${s1a1Selected}  ${itsThis}" onclick="selectThis(this)">Female</p>
+                <p id="s1a2" class="${s1a2Selected}" onclick="selectThis(this)">Male</p>
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">2.</h3>
+                <h3>What name is given to domestic cats <br>that were born in or have reverted to a wild state?</h3>
+                <p id="s2a1" class="${s2a1Selected}" onclick="selectThis(this)">Wild</p>
+                <p id="s2a2" class="${s2a2Selected}  ${itsThis}" onclick="selectThis(this)">Feral</p>
+                <p id="s2a3" class="${s2a3Selected}" onclick="selectThis(this)">Tameless</p>
+                <p id="s2a4" class="${s2a4Selected}" onclick="selectThis(this)">Undomesticated</p>
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">3.</h3>
+                <h3>How many claws do cats typically have?</h3>
+                <input id="ClawSlider" type="range" min="0" max="20" step="1" oninput="slideClaw()" value="${ClawGuess}">
+                <p id="ClawNR">${ClawGuess}</p>
+
+            </div>
+            `;
+        }
+
+
+
+
+
+
+
+
+
+
+        // ###############################################################
+        // ##                        Answers                            ##
+        // ###############################################################
+
+        // Question 1
+        // Female
+
+        // Question 2
+        // Feral
+
+        // Question 3
+        // Normally, a cat has 18 digits. The front paw has five toes – four toes and one dewclaw 
+        // (the small toe on the medial side of the foot that doesn't touch the ground). Most polydactyl 
+        // cats have one or two extra toes on each foot, with the extra toes appearing on the thumb side of the foot.
+    </script>
+
+</body>
+
+</html>

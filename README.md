@@ -20,5 +20,6 @@ Just a Simple Page:
 <br>
 <br><h2>Introduksjon til Model View Controller (Uke 3)</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Introduksjon-Model-View-Controller.html">Introduksjon til Model View Controller via et enkelt clickergame</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Input-fra-brukeren-med-MVC.html">Input fra brukeren med MVC</a>
 
 

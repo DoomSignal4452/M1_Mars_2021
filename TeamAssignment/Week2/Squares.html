@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squares</title>
+
+    <style>
+        body {
+            background-color: grey;
+        }
+        h1 {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: 100px 100px 100px;
+            grid-template-rows: 100px 100px 100px;
+            column-gap: 15px;
+            row-gap: 15px;
+            padding: 10px;
+            user-select: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .grid-item {
+            border-radius: 25px;
+            background-color: aquamarine;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+            border: 2px solid black;
+            font-size: 300%;
+            cursor: pointer;
+        }
+        .grid-item:hover {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .blue {
+            background-color: blue;
+          
+        }
+        .black {
+            background-color: black;
+            color: cornsilk;
+        }
+
+        .yellow {
+            background-color: yellow;
+            color: green;
+        }
+
+        .pink {
+            background-color: pink;
+            color: darkcyan;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Click on a box to change the color!</h1> 
+
+    <div class="grid-container">
+        <div id="1" class="grid-item black" onclick="changeStyle(this)">⍟</div>
+        <div id="2" class="grid-item blue" onclick="changeStyle(this)">⍟</div>
+        <div id="3" class="grid-item black" onclick="changeStyle(this)">⍟</div>
+
+        <div id="4" class="grid-item" onclick="changeStyle(this)">⍟</div>
+        <div id="5" class="grid-item black" onclick="changeStyle(this)">⍟</div>
+        <div id="6" class="grid-item" onclick="changeStyle(this)">⍟</div>
+
+        <div id="7" class="grid-item black" onclick="changeStyle(this)">⍟</div>
+        <div id="8" class="grid-item blue" onclick="changeStyle(this)">⍟</div>
+        <div id="9" class="grid-item black" onclick="changeStyle(this)">⍟</div>
+    </div>
+    
+    <script>
+    function changeStyle(ChoseBox) {
+
+        chooseNR=RandomNumber(0, 4)
+        console.log(chooseNR)
+        if (chooseNR==0) {
+            ChoseBox.classList.remove('pink');
+            ChoseBox.classList.remove('black');
+            ChoseBox.classList.remove('yellow');
+            ChoseBox.classList.remove('blue');
+        }
+        if (chooseNR==1) {
+            ChoseBox.classList.remove('pink');
+            ChoseBox.classList.remove('black');
+            ChoseBox.classList.remove('blue');
+            ChoseBox.classList.add('yellow');
+        } 
+        if (chooseNR==2) {
+            ChoseBox.classList.remove('pink');
+            ChoseBox.classList.remove('yellow');
+            ChoseBox.classList.remove('blue');
+            ChoseBox.classList.add('black');
+        } 
+        if (chooseNR==3) {
+            ChoseBox.classList.remove('black');
+            ChoseBox.classList.remove('yellow');
+            ChoseBox.classList.remove('blue');
+            ChoseBox.classList.add('pink');
+        }
+        if (chooseNR==4) {
+            ChoseBox.classList.remove('black');
+            ChoseBox.classList.remove('yellow');
+            ChoseBox.classList.remove('pink');
+            ChoseBox.classList.add('blue');
+
+        }
+    
+    }
+
+
+
+    function RandomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+    </script>
+</body>
+
+</html>

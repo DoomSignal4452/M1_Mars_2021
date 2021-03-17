@@ -12,7 +12,10 @@
     <title>Just a Simple Page</title>
 
 <style>
-
+    div.game {
+        font-size: 300%;
+        user-select: none;
+    }
 
 </style>
 
@@ -25,7 +28,7 @@
         <h2>Introduksjon til Model View Controller via et enkelt clickergame</h1>
 
         <div class="whitebox">
-
+            <div id="app"></div>
 
         </div>
 
@@ -33,9 +36,66 @@
     </div>
 
     <script>
+        // model
+        var points = 0;
+        var pointsPerClick = 1;
+        var smileyIndex = 0;
+        let hasCheated='no';
+        let CheatCount=0;
+        let isPlural='time';
 
+        // controller
+        function doClick() {
+            points += pointsPerClick;
+            smileyIndex = 1 - smileyIndex;
+            updateView();
+        }
 
+        function buyUpgrade() {
+            if (points < 10) return;
+            points -= 10;
+            pointsPerClick++;
+            updateView();
+        }
 
+        function buyCheat() {
+            hasCheated='yes'
+            points=points*10
+            pointsPerClick=pointsPerClick*10;
+            CheatCount=CheatCount+1;
+            if (CheatCount>1) {
+                isPlural='times'
+            }
+            updateView();
+        }
+
+        // view
+        updateView();
+        function updateView() {
+            var smiley = smileyIndex == 0 ? '😀' : '😁';
+            if (hasCheated=='no') {
+                document.getElementById('app').innerHTML = `
+                <div  class="game">
+                    <div id="image" onclick="doClick()">${smiley}</div>
+                    <div id="pointsInfo">${points}</div>
+                </div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="buyCheat()">Cheat</button>
+
+            `;
+            } else {
+                document.getElementById('app').innerHTML = `
+                <div  class="game">
+                    <div id="PlayerHasCheated">Player Has <br>Cheated ${CheatCount} ${isPlural}!!</div>
+                    <div id="image" onclick="doClick()">${smiley}</div>
+                    <div id="pointsInfo">${points}</div>
+                </div>
+                <button onclick="buyUpgrade()">Kjøp oppgradering (10 poeng)</button>
+                <button onclick="buyCheat()">Cheat</button>
+            `;
+            }
+
+        }
     </script> 
 </body>
 
