@@ -20,6 +20,7 @@ Just a Simple Page:
 <br>
 <br><h2>Introduksjon til Model View Controller (Uke 3)</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Introduksjon-Model-View-Controller.html">Introduksjon til Model View Controller via et enkelt clickergame</a>
-<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Input-fra-brukeren-med-MVC.html">Input fra brukeren med MVC</a>
-
-
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Input-fra-brukeren-med-MVC.html">Input fra brukeren med MVC</a>
+<br>
+<br><h2>Ukesoppgaver i Team</h2>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/TeamAssignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
