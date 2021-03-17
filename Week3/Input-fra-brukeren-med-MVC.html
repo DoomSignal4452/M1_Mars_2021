@@ -15,6 +15,17 @@
         h3 {
             margin: 0%;
         }
+        .spacer {
+            padding: 10px;
+        }
+        p {
+            width: 400px;
+            border-radius: 10px;
+            margin-top: 0px;
+            margin-bottom: 10px;
+            margin-right: auto;
+            margin-left: auto;
+        }
 
         p.selected::before {
             content: "🡆 ";
@@ -31,6 +42,99 @@
         .left {
             text-align: left;
         }
+/*
+        input[type=range] {
+            margin-top: 20px;
+            width: 400px;
+        }
+*/
+input[type=range] {
+  height: 27px;
+  -webkit-appearance: none;
+  margin-top: 0px;
+  width: 400px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px #000000;
+  background: cadetblue;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -1px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: cadetblue;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px #000000;
+  background: cadetblue;
+  border-radius: 10px;
+  border: 1px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 20px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: cadetblue;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: cadetblue;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 0px 0px 0px #000000;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 20px;
+  background: #FFFFFF;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: cadetblue;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: cadetblue;
+}
+
     </style>
 
 </head>
@@ -160,7 +264,7 @@
 
         function slideClaw() {
             ClawGuess = document.getElementById("ClawSlider").value;
-            document.getElementById("ClawNR").innerHTML = '<p>' + ClawGuess + '</p>';
+            document.getElementById("ClawNR").innerHTML = '<p>Your answer: ' + ClawGuess + '</p>';
         }
 
         // ----- END Question 3 ------------------------------------------
@@ -176,6 +280,7 @@
             <div class="whitebox">
                 <h3 class=" left">1.</h3>
                 <h3>Calico cats, which refers to a color pattern on the fur <br>and not a breed, are mostly what?</h3>
+                <div class="spacer"></div>
                 <p id="s1a1" class="${s1a1Selected}  ${itsThis}" onclick="selectThis(this)">Female</p>
                 <p id="s1a2" class="${s1a2Selected}" onclick="selectThis(this)">Male</p>
             </div>
@@ -183,6 +288,7 @@
             <div class="whitebox">
                 <h3 class=" left">2.</h3>
                 <h3>What name is given to domestic cats <br>that were born in or have reverted to a wild state?</h3>
+                <div class="spacer"></div>
                 <p id="s2a1" class="${s2a1Selected}" onclick="selectThis(this)">Wild</p>
                 <p id="s2a2" class="${s2a2Selected}  ${itsThis}" onclick="selectThis(this)">Feral</p>
                 <p id="s2a3" class="${s2a3Selected}" onclick="selectThis(this)">Tameless</p>
@@ -192,9 +298,16 @@
             <div class="whitebox">
                 <h3 class=" left">3.</h3>
                 <h3>How many claws do cats typically have?</h3>
+                <div class="spacer"></div>
                 <input id="ClawSlider" type="range" min="0" max="20" step="1" oninput="slideClaw()" value="${ClawGuess}">
-                <p id="ClawNR">${ClawGuess}</p>
+                <p id="ClawNR">Your answer: ${ClawGuess}</p>
+            </div>
 
+            <div class="whitebox">
+                <h3 class=" left">4.</h3>
+                <h3>New?</h3>
+                <div class="spacer"></div>
+                <p>Empty</p>
             </div>
             `;
         }
