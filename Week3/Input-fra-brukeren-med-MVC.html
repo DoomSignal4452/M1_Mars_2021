@@ -20,11 +20,19 @@
         }
         p {
             width: 400px;
+            padding-top: 2px;
+            padding-bottom: 2px;
             border-radius: 10px;
             margin-top: 0px;
             margin-bottom: 10px;
             margin-right: auto;
             margin-left: auto;
+        }
+        .pointer {
+            cursor: pointer;
+        }
+        .shadow {
+            box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         p.selected::before {
@@ -42,12 +50,33 @@
         .left {
             text-align: left;
         }
-/*
-        input[type=range] {
-            margin-top: 20px;
-            width: 400px;
+
+        .chosenWrong {
+            background-color: lightcoral;
+            color: rgb(105, 0, 0);
         }
-*/
+        p.chosenWrong::before {
+            content: "🡆 ";
+        }
+        p.chosenWrong::after {
+            content: " 🡄";
+        }
+
+        .chosenCorrect {
+            color: darkgreen;
+        }
+        p.chosenCorrect::before {
+            content: "🡆 ";
+        }
+        p.chosenCorrect::after {
+            content: " 🡄";
+        }
+
+        .correct {
+            background-color: lightgreen;
+        }
+
+
 input[type=range] {
   height: 27px;
   -webkit-appearance: none;
@@ -181,6 +210,17 @@ input[type=range]:focus::-ms-fill-upper {
         let ClawGuess = 0;
         // ----- END Question 3 ------------------------------------------
 
+        // ----- Question 4, 5, 6, 7 -------------------------------------
+        let s4Answer="";
+        let s5Answer="";
+        let s6Answer1="";
+        let s6Answer2="";
+        let s7Answer="";
+        // ----- END Question 4, 5, 6, 7 ---------------------------------
+
+        // ----- Result Button -------------------------------------------
+        let ClickedResultButton="no";
+        // ----- END Result Button ---------------------------------------
 
         // ###############################################################
         // ##                       Controller                          ##
@@ -258,41 +298,104 @@ input[type=range]:focus::-ms-fill-upper {
             s2a3Selected = "";
             s2a4Selected = "";
         }
-        // ----- END Question 1 & 2 --------------------------------------
+        // ----- END Question 1, 2 ---------------------------------------
 
         // ----- Question 3 ----------------------------------------------
-
         function slideClaw() {
             ClawGuess = document.getElementById("ClawSlider").value;
-            document.getElementById("ClawNR").innerHTML = '<p>Your answer: ' + ClawGuess + '</p>';
+            document.getElementById("ClawNR").innerHTML = 'Your answer: ' + ClawGuess;
+        }
+        // ----- END Question 3 ------------------------------------------
+
+        // ----- Question 4, 5, 6 ----------------------------------------
+        function AnswerInput(QuestionNumber) {
+            if (QuestionNumber=='s4') {
+                s4Answer = document.getElementById('s4AnswerInput').value;
+                console.log(s4Answer+' <- s4Answer')
+            }
+            if (QuestionNumber=='s5') {
+                s5Answer = document.getElementById('s5AnswerInput').value;
+                console.log(s5Answer+' <- s5Answer')
+            }
+            if (QuestionNumber=='s6-1') {
+                s6Answer1 = document.getElementById('s6AnswerInput1').value;
+                console.log(s6Answer1+' <- s6Answer1')
+            }
+            if (QuestionNumber=='s6-2') {
+                s6Answer2 = document.getElementById('s6AnswerInput2').value;
+                console.log(s6Answer2+' <- s6Answer2')
+            }
+            if (QuestionNumber=='s7') {
+                s7Answer = document.getElementById('s7AnswerInput').value;
+                console.log(s7Answer+' <- s7Answer')
+            }
+        }
+        // ----- END Question 4, 5, 6 ------------------------------------
+
+        // ----- Result Button -------------------------------------------
+        function CheckAnswers() {
+            ClickedResultButton="yes"
+            itsThis="correct"
+            Selection1Style()
+            Selection2Style()
+
+            updateView();
         }
 
-        // ----- END Question 3 ------------------------------------------
+
+
+        function Selection1Style() {
+            if (Selection1=='s1a1') {
+                s1a1Selected='chosenCorrect'
+                console.log('correct is running')
+            } else if (Selection1=='s1a2') {
+                s1a2Selected='chosenWrong'
+            }
+        }
+        function Selection2Style() {
+            if (Selection2=='s2a2') {
+                s1a1Selected='chosenCorrect'
+                console.log('correct is running')
+            } else {
+                if (Selection2=='s2a1') {
+                    s2a1Selected='chosenWrong'
+                } else if (Selection2=='s2a3') {
+                    s2a3Selected='chosenWrong'
+                } else if (Selection2=='s2a4') {
+                    s2a4Selected='chosenWrong'
+                }
+            }
+        }
+        function makingsSelection2Class(SelectionID) {
+            return SelectionID + 'Selected';
+        }
+        // ----- END Result Button ---------------------------------------
 
         // ###############################################################
         // ##                          View                             ##
         // ###############################################################
 
         updateView();
-        slideClaw();
+
         function updateView() {
-            document.getElementById('app').innerHTML = `
+            if (ClickedResultButton=="no") {
+                document.getElementById('app').innerHTML = `
             <div class="whitebox">
                 <h3 class=" left">1.</h3>
                 <h3>Calico cats, which refers to a color pattern on the fur <br>and not a breed, are mostly what?</h3>
                 <div class="spacer"></div>
-                <p id="s1a1" class="${s1a1Selected}  ${itsThis}" onclick="selectThis(this)">Female</p>
-                <p id="s1a2" class="${s1a2Selected}" onclick="selectThis(this)">Male</p>
+                <p id="s1a1" class="pointer shadow ${s1a1Selected}  ${itsThis}" onclick="selectThis(this)">Female</p>
+                <p id="s1a2" class="pointer shadow ${s1a2Selected}" onclick="selectThis(this)">Male</p>
             </div>
 
             <div class="whitebox">
                 <h3 class=" left">2.</h3>
                 <h3>What name is given to domestic cats <br>that were born in or have reverted to a wild state?</h3>
                 <div class="spacer"></div>
-                <p id="s2a1" class="${s2a1Selected}" onclick="selectThis(this)">Wild</p>
-                <p id="s2a2" class="${s2a2Selected}  ${itsThis}" onclick="selectThis(this)">Feral</p>
-                <p id="s2a3" class="${s2a3Selected}" onclick="selectThis(this)">Tameless</p>
-                <p id="s2a4" class="${s2a4Selected}" onclick="selectThis(this)">Undomesticated</p>
+                <p id="s2a1" class="pointer shadow ${s2a1Selected}" onclick="selectThis(this)">Wild</p>
+                <p id="s2a2" class="pointer shadow ${s2a2Selected}  ${itsThis}" onclick="selectThis(this)">Feral</p>
+                <p id="s2a3" class="pointer shadow ${s2a3Selected}" onclick="selectThis(this)">Tameless</p>
+                <p id="s2a4" class="pointer shadow ${s2a4Selected}" onclick="selectThis(this)">Undomesticated</p>
             </div>
 
             <div class="whitebox">
@@ -305,13 +408,110 @@ input[type=range]:focus::-ms-fill-upper {
 
             <div class="whitebox">
                 <h3 class=" left">4.</h3>
-                <h3>New?</h3>
+                <h3>Cats with a question mark-shaped tail are feeling ______.</h3>
                 <div class="spacer"></div>
-                <p>Empty</p>
+                <input type="text" id="s4AnswerInput" oninput="AnswerInput('s4')" value="${s4Answer}">
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">5.</h3>
+                <h3>A group of kittens is called a “______.”</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s5AnswerInput" oninput="AnswerInput('s5')" value="${s5Answer}">
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">6.</h3>
+                <h3>Cats with extra toes are called “______” cats or “______” cats.</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s6AnswerInput1" oninput="AnswerInput('s6-1')" value="${s6Answer1}">
+                <input type="text" id="s6AnswerInput2" oninput="AnswerInput('s6-2')" value="${s6Answer2}">
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">7.</h3>
+                <h3>A group of cats can be called a “______.”</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s7AnswerInput" oninput="AnswerInput('s7')" value="${s7Answer}">
+            </div>
+
+            <div class="whitebox">
+                <h3>Ready to see results?</h3>
+                <div class="spacer"></div>
+                <button class="pointer" onclick="CheckAnswers()">Click Here!</button>
             </div>
             `;
-        }
+            } 
+            else if (ClickedResultButton=="yes") {
+                document.getElementById('app').innerHTML = `
+            <div class="whitebox">
+                <h3 class=" left">1.</h3>
+                <h3>Calico cats, which refers to a color pattern on the fur <br>and not a breed, are mostly what?</h3>
+                <div class="spacer"></div>
+                <p id="s1a1" class="shadow ${s1a1Selected}  ${itsThis}">Female</p>
+                <p id="s1a2" class="shadow ${s1a2Selected}">Male</p>
+            </div>
 
+            <div class="whitebox">
+                <h3 class=" left">2.</h3>
+                <h3>What name is given to domestic cats <br>that were born in or have reverted to a wild state?</h3>
+                <div class="spacer"></div>
+                <p id="s2a1" class="shadow ${s2a1Selected}">Wild</p>
+                <p id="s2a2" class="shadow ${s2a2Selected}  ${itsThis}">Feral</p>
+                <p id="s2a3" class="shadow ${s2a3Selected}">Tameless</p>
+                <p id="s2a4" class="shadow ${s2a4Selected}">Undomesticated</p>
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">3.</h3>
+                <h3>How many claws do cats typically have?</h3>
+                <div class="spacer"></div>
+                <input id="ClawSlider" type="range" min="0" max="20" step="1" oninput="slideClaw()" value="${ClawGuess}">
+                <p id="ClawNR">Your answer: ${ClawGuess}</p>
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">4.</h3>
+                <h3>Cats with a question mark-shaped tail are feeling ______.</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s4AnswerInput" oninput="AnswerInput('s4')" value="${s4Answer}">
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">5.</h3>
+                <h3>A group of kittens is called a “______.”</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s5AnswerInput" oninput="AnswerInput('s5')" value="${s5Answer}">
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">6.</h3>
+                <h3>Cats with extra toes are called “______” cats or “______” cats.</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s6AnswerInput1" oninput="AnswerInput('s6-1')" value="${s6Answer1}">
+                <input type="text" id="s6AnswerInput2" oninput="AnswerInput('s6-2')" value="${s6Answer2}">
+            </div>
+
+            <div class="whitebox">
+                <h3 class=" left">7.</h3>
+                <h3>A group of cats can be called a “______.”</h3>
+                <div class="spacer"></div>
+                <input type="text" id="s7AnswerInput" oninput="AnswerInput('s7')" value="${s7Answer}">
+            </div>
+
+            <div class="whitebox">
+                <h3>Ready to see results?</h3>
+                <div class="spacer"></div>
+                <button class="pointer" onclick="CheckAnswers()">Click Here!</button>
+            </div>
+            `;
+            } else {
+                document.getElementById('app').innerHTML = `
+                There has been an error...
+            `;
+            }
+            
+        }
 
 
 
@@ -335,6 +535,18 @@ input[type=range]:focus::-ms-fill-upper {
         // Normally, a cat has 18 digits. The front paw has five toes – four toes and one dewclaw 
         // (the small toe on the medial side of the foot that doesn't touch the ground). Most polydactyl 
         // cats have one or two extra toes on each foot, with the extra toes appearing on the thumb side of the foot.
+
+        // Question 4
+        // Cats with a question mark-shaped tail are feeling playful.
+
+        // Question 5
+        // A group of kittens is called a “kindle.”
+
+        // Question 6
+        // Cats with extra toes are called “polydactyl” cats or “Hemingway” cats.
+
+        // Question 7
+        // A group of cats can be called a “clowder,” “clutter,” “glaring” and “pounce.”
     </script>
 
 </body>

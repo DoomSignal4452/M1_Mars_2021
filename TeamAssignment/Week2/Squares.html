@@ -85,47 +85,95 @@
     <script>
     function changeStyle(ChoseBox) {
 
-        chooseNR=RandomNumber(0, 4)
-        console.log(chooseNR)
-        if (chooseNR==0) {
-            ChoseBox.classList.remove('pink');
-            ChoseBox.classList.remove('black');
-            ChoseBox.classList.remove('yellow');
-            ChoseBox.classList.remove('blue');
-        }
-        if (chooseNR==1) {
-            ChoseBox.classList.remove('pink');
-            ChoseBox.classList.remove('black');
-            ChoseBox.classList.remove('blue');
-            ChoseBox.classList.add('yellow');
-        } 
-        if (chooseNR==2) {
-            ChoseBox.classList.remove('pink');
-            ChoseBox.classList.remove('yellow');
-            ChoseBox.classList.remove('blue');
-            ChoseBox.classList.add('black');
-        } 
-        if (chooseNR==3) {
-            ChoseBox.classList.remove('black');
-            ChoseBox.classList.remove('yellow');
-            ChoseBox.classList.remove('blue');
-            ChoseBox.classList.add('pink');
-        }
-        if (chooseNR==4) {
-            ChoseBox.classList.remove('black');
-            ChoseBox.classList.remove('yellow');
-            ChoseBox.classList.remove('pink');
-            ChoseBox.classList.add('blue');
+        chooseNR=RandomNumber(0, 4) // her settes variabelen 'choosNR' til det funksjonen 'RandomNumber(min, max)' returnerer
+        console.log(chooseNR) // Console.log() skriver inn inholdet i () til consollen, som kan sees ved å trykke F12
 
+        if (chooseNR==0) { // if (chooseNR==0) sjekker 'if' ChooseNR er 0
+            if (ChoseBox.classList.contains('pink')||ChoseBox.classList.contains('black')||ChoseBox.classList.contains('yellow')||ChoseBox.classList.contains('blue')) 
+                // ChoseBox.classList.contains('pink') sjekker om 'ChoseBox' sin 'classList' 'contains' pink
+                // '||' betyer eller, så "if (2||3)" betyr "hvis 2 eller 3"
+                // i tilffelet ovenfor vil 'if' kun kjøre sin del hvis den finner 'pink' eller 'black' eller 'yellow' eller 'blue'
+                {   
+                    ChoseBox.classList.remove('pink'); // ChoseBox.classList.remove('pink') vil fjerne classen 'pink' fra 'ChoseBox'
+                    ChoseBox.classList.remove('black');
+                    ChoseBox.classList.remove('yellow');
+                    ChoseBox.classList.remove('blue');
+                    console.log('End'); // Console.log() skriver inn inholdet i () til consollen, i dette tilfellet blir 'End' skrivd i consollen.
+                } 
+            else { // hvis 'if' delen ovefor ikke fullfører betingelsene for å kjøre vil 'else' kjøre isteden
+                console.log('Retry'); // Console.log() skriver inn inholdet i () til consollen, i dette tilfellet blir 'Retry' skrivd i consollen.
+                changeStyle(ChoseBox); // changeStyle(ChoseBox) er en function, ved å be om at den kjøres her, vil function starte fra begynnelsen.
+            }
+
+        }
+        // alle 'if' på samme nyvå vil sjekke om de kan kjøre
+        // 'else if' betyr 'eller hvis'. 
+
+        // Så 'if(chooseNR==0)' som følges av 'else if(chooseNR==1)', vil bety 'hvis 0' gjøre noe 'eller hvis 1' gjør noe. 
+        // I dette tilfellet vil ingenting skje hvis nummeret if ser på ikke er 0 eller 1.
+
+        else if (chooseNR==1) {
+            if (ChoseBox.classList.contains('yellow')) {
+                console.log('Retry');
+                changeStyle(ChoseBox);
+            } 
+            else {
+                ChoseBox.classList.remove('pink');
+                ChoseBox.classList.remove('black');
+                ChoseBox.classList.remove('blue');
+                ChoseBox.classList.add('yellow');  // ChoseBox.classList.add('yellow') vil legge til classen 'yellow' til 'ChoseBox'
+                console.log('End');
+            }
+        } 
+        else if (chooseNR==2) {
+            if (ChoseBox.classList.contains('black')) {
+                console.log('Retry');
+                changeStyle(ChoseBox);
+            } 
+            else {
+                ChoseBox.classList.remove('pink');
+                ChoseBox.classList.remove('yellow');
+                ChoseBox.classList.remove('blue');
+                ChoseBox.classList.add('black');
+                console.log('End');
+            }
+        } 
+        else if (chooseNR==3) {
+            if (ChoseBox.classList.contains('pink')) {
+                console.log('Retry');
+                changeStyle(ChoseBox);
+            } 
+            else {
+                ChoseBox.classList.remove('black');
+                ChoseBox.classList.remove('yellow');
+                ChoseBox.classList.remove('blue');
+                ChoseBox.classList.add('pink');
+                console.log('End')
+            }
+        }
+        else if (chooseNR==4) {
+            if (ChoseBox.classList.contains('blue')) {
+                console.log('Retry');
+                changeStyle(ChoseBox);
+            } else {
+                ChoseBox.classList.remove('black');
+                ChoseBox.classList.remove('yellow');
+                ChoseBox.classList.remove('pink');
+                ChoseBox.classList.add('blue');
+                console.log('End');
+            }
         }
     
     }
 
 
-
+    // denne fuctionen vil returener et tilfeldig nr, hvor du kan sette minste tall den kan velge('min') og største tall('max')
     function RandomNumber(min, max) {
         return Math.floor(Math.random() * (max - min + 1) ) + min;
+        // Math.random() vil gi et tall som er lik eller større enn 0.0 og mindre enn 1
+        // Math.floor() vil runde av et tall nedover
     }
+    // RandomNumber(0, 4) vil returnere et tilfeldig tall fra 0 til 4
     </script>
 </body>
 
