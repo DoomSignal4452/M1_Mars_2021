@@ -62,6 +62,21 @@
             content: " 🡄";
         }
 
+        .chosenWrong2 {
+            padding-left: 2px;
+            padding-right: 2px;
+            border-radius: 3px;
+            background-color: lightcoral;
+            color: rgb(105, 0, 0);
+        }
+        .chosenCorrect2 {
+            padding-left: 2px;
+            padding-right: 2px;
+            border-radius: 3px;
+            background-color: lightgreen;
+            color: darkgreen;
+        }
+
         .chosenCorrect {
             color: darkgreen;
         }
@@ -163,6 +178,11 @@ input[type=range]:focus::-ms-fill-lower {
 input[type=range]:focus::-ms-fill-upper {
   background: cadetblue;
 }
+.bolded {
+    font-size: 105%;
+    color: rgb(0, 68, 0);
+}
+
 
     </style>
 
@@ -216,17 +236,44 @@ input[type=range]:focus::-ms-fill-upper {
         let s6Answer1="";
         let s6Answer2="";
         let s7Answer="";
+
+        let Question7is1=`A group of cats can be called a “<span class="bolded">`;
+        let Question7is2=`</span>.”`;
+
+        let s7allCorrect=["clowder", "clutter", "glaring", "pounce"];
         // ----- END Question 4, 5, 6, 7 ---------------------------------
 
         // ----- Result Button -------------------------------------------
         let ClickedResultButton="no";
+
+        let isAnswered3='no'
+        let allowtoAnswer=`
+                <h3>Ready to see results?</h3>
+                <div class="spacer"></div>
+                <button disabled class="pointer" onclick="CheckAnswers()">Click Here!</button>
+                `;
+
+        let span3="";
+        let span4="";
+        let span5="";
+        let span61="";
+        let span62="";
+        let span7="";
+
+
+        let poly='polydactyl';
+        let hemi='Hemingway';
         // ----- END Result Button ---------------------------------------
+
 
         // ###############################################################
         // ##                       Controller                          ##
         // ###############################################################
 
         // ----- Question 1 & 2 ------------------------------------------
+        // Answer input, to variable
+        // Class chaning to show selected answer
+
         function selectThis(AnswerClicked) {
             emptySelection()
             AnswerID = findAnswerID(AnswerClicked);
@@ -247,6 +294,7 @@ input[type=range]:focus::-ms-fill-upper {
             classIDtoChange = makingTheClassID(Selection2)
             SetToSelected(classIDtoChange);
 
+            allowAnswer()
             updateView();
             console.log('END OF SelectThis()')
         }
@@ -304,58 +352,80 @@ input[type=range]:focus::-ms-fill-upper {
         function slideClaw() {
             ClawGuess = document.getElementById("ClawSlider").value;
             document.getElementById("ClawNR").innerHTML = 'Your answer: ' + ClawGuess;
+            isAnswered3='yes';
+            allowAnswer()
         }
         // ----- END Question 3 ------------------------------------------
 
-        // ----- Question 4, 5, 6 ----------------------------------------
+        // ----- Question 4, 5, 6, 7 -------------------------------------
+        // Text input, to variables
+        // Also marks question as answered as long as there is at least one symbol in textfield
         function AnswerInput(QuestionNumber) {
             if (QuestionNumber=='s4') {
                 s4Answer = document.getElementById('s4AnswerInput').value;
-                console.log(s4Answer+' <- s4Answer')
+                console.log(s4Answer+' <- s4Answer');
             }
             if (QuestionNumber=='s5') {
                 s5Answer = document.getElementById('s5AnswerInput').value;
-                console.log(s5Answer+' <- s5Answer')
+                console.log(s5Answer+' <- s5Answer');
             }
             if (QuestionNumber=='s6-1') {
                 s6Answer1 = document.getElementById('s6AnswerInput1').value;
-                console.log(s6Answer1+' <- s6Answer1')
+                console.log(s6Answer1+' <- s6Answer1');
             }
             if (QuestionNumber=='s6-2') {
                 s6Answer2 = document.getElementById('s6AnswerInput2').value;
-                console.log(s6Answer2+' <- s6Answer2')
+                console.log(s6Answer2+' <- s6Answer2');
             }
             if (QuestionNumber=='s7') {
                 s7Answer = document.getElementById('s7AnswerInput').value;
-                console.log(s7Answer+' <- s7Answer')
+                console.log(s7Answer+' <- s7Answer');
             }
+            allowAnswer()
+            updateButton()
         }
-        // ----- END Question 4, 5, 6 ------------------------------------
+        // ----- END Question 4, 5, 6, 7 ---------------------------------
 
-        // ----- Result Button -------------------------------------------
+        // ###############################################################
+        // ##                     Result Button                         ##
+        // ###############################################################
+        // Moving on to resultscreen
+        // Run functions to check if correct
         function CheckAnswers() {
             ClickedResultButton="yes"
             itsThis="correct"
             Selection1Style()
             Selection2Style()
 
+            question3answer()
+            question4answer()
+            question5answer()
+
+            question6part1()
+            question6part2()
+            question6order()
+
+            isQuesutin7correct()
+            showOnlyRemaningCorrect()
+
             updateView();
         }
 
 
-
+        // Changes class of question 1 selection, to indicate if user selected correct answer
         function Selection1Style() {
             if (Selection1=='s1a1') {
                 s1a1Selected='chosenCorrect'
-                console.log('correct is running')
+                console.log('correct 1 is running')
             } else if (Selection1=='s1a2') {
                 s1a2Selected='chosenWrong'
             }
         }
+        // Changes class of question 2 selection, to indicate if user selected correct answer
         function Selection2Style() {
             if (Selection2=='s2a2') {
-                s1a1Selected='chosenCorrect'
-                console.log('correct is running')
+                s2a2Selected='chosenCorrect'
+                console.log('correct 2 is running')
             } else {
                 if (Selection2=='s2a1') {
                     s2a1Selected='chosenWrong'
@@ -366,10 +436,140 @@ input[type=range]:focus::-ms-fill-upper {
                 }
             }
         }
-        function makingsSelection2Class(SelectionID) {
-            return SelectionID + 'Selected';
+
+        // Question 3
+        function question3answer() {
+            if (ClawGuess==18) {
+                span3='chosenCorrect2'
+            } else {
+                span3='chosenWrong2'
+            }
         }
+
+        // Question 4
+        function question4answer() {
+            if (s4Answer=='playful') {
+                span4='chosenCorrect2'
+            } else {
+                span4='chosenWrong2'
+            }
+        }
+
+        // Question 5
+        function question5answer() {
+            if (s5Answer=='kindle') {
+                span5='chosenCorrect2'
+            } else {
+                span5='chosenWrong2'
+            }
+        }
+
+        // Question 6  
+
+        // Part 1
+        function question6part1() {
+            if (s6Answer1=='polydactyl' || s6Answer1=='Hemingway' || s6Answer1=='hemingway') {
+                span61='chosenCorrect2'
+            } else {
+                span61='chosenWrong2';
+            }
+        }
+        // Part 2
+        function question6part2() {
+            if (s6Answer2=='polydactyl' || s6Answer2=='Hemingway' || s6Answer2=='hemingway') {
+                span62='chosenCorrect2';
+            } else {
+                span62='chosenWrong2';
+            }
+        }
+
+        // Checks what order Question 6 was answered, if correct, adjusts sentece to match answer
+        function question6order() {
+            if (s6Answer1=='Hemingway' || s6Answer1=='hemingway') {
+                poly='Hemingway';
+                hemi='polydactyl';
+            }
+        }
+
+        // Question 7 - A group of cats can be called a “clowder,” “clutter,” “glaring” and “pounce.”
+
+        // Checks if answer is one of 4 correct answers, and adds class to indicate so
+        // if wrong show all correct answers in example text
+        function isQuesutin7correct() {
+            if (s7Answer=='clowder'||s7Answer=='clutter'||s7Answer=='glaring'||s7Answer=='pounce') {
+                span7='chosenCorrect2';
+            } else {
+                console.log('isQuesutin7correct is wrong')
+                span7='chosenWrong2';
+                Question7is1 = `
+                A group of cats can be called a “<span class="bolded">clowder</span>,” “<span class="bolded">clutter</span>,” 
+                “<span class="bolded">glaring</span>” and “<span class="bolded">pounce</span>.”
+                `;
+                Question7is2 = '';
+            }
+        }
+
+        // removes correct answer from array
+        // s7allCorrect=["clowder", "clutter", "glaring", "pounce"];
+        function showOnlyRemaningCorrect() {
+            if (s7Answer=='clowder') {
+                s7allCorrect.splice(0, 1)
+            } else if (s7Answer=='clutter') {
+                s7allCorrect.splice(1, 1)
+            } else if (s7Answer=='glaring') {
+                s7allCorrect.splice(2, 1)
+            } else if (s7Answer=='pounce') {
+                s7allCorrect.splice(3, 1)
+            }
+        }
+
+        // function to check that all questions are answered
+        function isAllanswered() {
+            if (Selection1!=""
+                &&Selection2!=""
+                &&isAnswered3=='yes'
+                &&s4Answer.length>=1
+                &&s5Answer.length>=1
+                &&s6Answer1.length>=1
+                &&s6Answer2.length>=1
+                &&s7Answer.length>=1) {
+                    return true
+                } else {
+                    return false
+                }
+        }
+
+        // function to allow result button once all questions are answered
+        function allowAnswer() {
+            if (isAllanswered()==true) {
+                allowtoAnswer= `
+                <h3>Ready to see results?</h3>
+                <div class="spacer"></div>
+                <button  class="pointer" onclick="CheckAnswers()">Click Here!</button>
+                `;
+            } else {
+                allowtoAnswer= `
+                <h3>Ready to see results?</h3>
+                <div class="spacer"></div>
+                <button disabled class="pointer" onclick="CheckAnswers()">Click Here!</button>
+                `;
+            }
+        }
+
+        // Updates button availability for text input answers
+        function updateButton() {
+            document.getElementById('resBut').innerHTML = `
+            ${allowtoAnswer}
+            `;
+        }
+
         // ----- END Result Button ---------------------------------------
+
+        // Reloads the whole page
+        function resetAll() {
+            location.reload();
+            return false;
+        }
 
         // ###############################################################
         // ##                          View                             ##
@@ -379,6 +579,9 @@ input[type=range]:focus::-ms-fill-upper {
 
         function updateView() {
             if (ClickedResultButton=="no") {
+        // ###############################################################
+        // ##                    Initial Screen                         ##
+        // ###############################################################
                 document.getElementById('app').innerHTML = `
             <div class="whitebox">
                 <h3 class=" left">1.</h3>
@@ -435,14 +638,15 @@ input[type=range]:focus::-ms-fill-upper {
                 <input type="text" id="s7AnswerInput" oninput="AnswerInput('s7')" value="${s7Answer}">
             </div>
 
-            <div class="whitebox">
-                <h3>Ready to see results?</h3>
-                <div class="spacer"></div>
-                <button class="pointer" onclick="CheckAnswers()">Click Here!</button>
+            <div id=resBut class="whitebox">
+                ${allowtoAnswer}
             </div>
             `;
             } 
-            else if (ClickedResultButton=="yes") {
+            else if (ClickedResultButton=="yes") { 
+        // ###############################################################
+        // ##                     Result Screen                         ##
+        // ###############################################################
                 document.getElementById('app').innerHTML = `
             <div class="whitebox">
                 <h3 class=" left">1.</h3>
@@ -464,45 +668,62 @@ input[type=range]:focus::-ms-fill-upper {
 
             <div class="whitebox">
                 <h3 class=" left">3.</h3>
-                <h3>How many claws do cats typically have?</h3>
+                <h3>Normally, a cat has <span class="bolded">18 claws</span>.</h3>
                 <div class="spacer"></div>
-                <input id="ClawSlider" type="range" min="0" max="20" step="1" oninput="slideClaw()" value="${ClawGuess}">
-                <p id="ClawNR">Your answer: ${ClawGuess}</p>
+                
+                Your answer:
+                    <br>Cats typically has <span class="${span3}">${ClawGuess} claws</span>.</p>
             </div>
 
             <div class="whitebox">
                 <h3 class=" left">4.</h3>
-                <h3>Cats with a question mark-shaped tail are feeling ______.</h3>
+                <h3>Cats with a question mark-shaped tail are feeling <span class="bolded">playful</span>.</h3>
                 <div class="spacer"></div>
-                <input type="text" id="s4AnswerInput" oninput="AnswerInput('s4')" value="${s4Answer}">
+
+                <p class="shadow">
+                    Your answer:
+                    <br>Cats with a question mark-shaped tail are feeling <span class="${span4}">${s4Answer}</span>.</p>
             </div>
 
             <div class="whitebox">
                 <h3 class=" left">5.</h3>
-                <h3>A group of kittens is called a “______.”</h3>
+                <h3>A group of kittens is called a “<span class="bolded">kindle</span>.”</h3>
                 <div class="spacer"></div>
-                <input type="text" id="s5AnswerInput" oninput="AnswerInput('s5')" value="${s5Answer}">
+
+                <p class="shadow">
+                    Your answer:
+                    <br>A group of kittens is called a “<span class="${span5}">${s5Answer}</span>.”</p>
             </div>
 
             <div class="whitebox">
                 <h3 class=" left">6.</h3>
-                <h3>Cats with extra toes are called “______” cats or “______” cats.</h3>
+                <h3>Cats with extra toes are called <br>“<span class="bolded">${poly}</span>” cats or “<span class="bolded">${hemi}</span>” cats.</h3>
                 <div class="spacer"></div>
-                <input type="text" id="s6AnswerInput1" oninput="AnswerInput('s6-1')" value="${s6Answer1}">
-                <input type="text" id="s6AnswerInput2" oninput="AnswerInput('s6-2')" value="${s6Answer2}">
+
+                <p class="shadow">
+                    Your answer:
+                    <br>Cats with extra toes are called <br>“<span class="${span61}">${s6Answer1}</span>” cats or “<span class="${span62}">${s6Answer2}</span>” cats.</p>
             </div>
 
             <div class="whitebox">
                 <h3 class=" left">7.</h3>
-                <h3>A group of cats can be called a “______.”</h3>
+                <h3 id=Que7>${Question7is1}${s7Answer}${Question7is2}</h3>
                 <div class="spacer"></div>
-                <input type="text" id="s7AnswerInput" oninput="AnswerInput('s7')" value="${s7Answer}">
+
+                    
+                <p class="shadow">
+                    Your answer:
+                    <br>A group of cats can be called a “<span class="${span7}">${s7Answer}</span>.”</p>
+                
+                <p class="shadow">
+                    A group of cats can also be called a “${s7allCorrect[0]},” “${s7allCorrect[1]}” and “${s7allCorrect[2]}.”</p>
+                
             </div>
 
             <div class="whitebox">
-                <h3>Ready to see results?</h3>
+                <h3>Try again?</h3>
                 <div class="spacer"></div>
-                <button class="pointer" onclick="CheckAnswers()">Click Here!</button>
+                <button class="pointer" onclick="resetAll()">Click Here!</button>
             </div>
             `;
             } else {
