@@ -15,12 +15,21 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/8_Sette-variabel-til-tilfeldig-tall.html">8 - Sette variabel til tilfeldig tall</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/9_Endre-andre-ting-enn-innerHTML.html">9 - Endre andre ting enn innerHTML: value, style</a>
 <br>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/Funksjoner-med-parametre.html">Funksjoner med parametre</a>
+<br><h2>Funksjoner (Uke 2)</h2>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/Funksjoner-med-parametre.html">Funksjoner med parametre</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week2/Funksjoner-med-returverdi.html">Funksjoner med returverdi</a>
 <br>
 <br><h2>Introduksjon til Model View Controller (Uke 3)</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Introduksjon-Model-View-Controller.html">Introduksjon til Model View Controller via et enkelt clickergame</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Input-fra-brukeren-med-MVC.html">Input fra brukeren med MVC</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Oppgave-kalkulator.html">Oppgave - kalkulator</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Enkel-statistikk.html">Enkel statistikk</a>
+<br>
+<br><h2>Valgsetninger, if (Uke 3)</h2>
 <br>
 <br><h2>Ukesoppgaver i Team</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/TeamAssignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
+
+
+
+

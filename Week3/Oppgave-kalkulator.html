@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Just a Simple Page</title>
+
+    <style type="text/css">
+        .whitebox {
+            height: 500px;
+            width: 400px;
+        }
+        div.base {
+            float: left;
+            background-color: beige;
+            width: 50px;
+            height: 50px;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            vertical-align: middle;
+            font-family: helvetica;
+            font-size: 200%;
+            border: #bbbbaa solid 4px;
+            border-radius: 10px;
+        }
+
+        div.resultBox {
+            width: 344px;
+            text-align: right;
+        }
+
+        div.firstInRow {
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+
+        <h2>Oppgave - kalkulator</h1>
+
+            <div class="whitebox">
+                <div id="resultBox" class="base resultBox" id="screen"></div>
+
+                <div class="base firstInRow" onclick="addCharacter(7)">7</div>
+                <div class="base" onclick="addCharacter(8)">8</div>
+                <div class="base" onclick="addCharacter(9)">9</div>
+                <div class="base" onclick="addCharacter('÷')">÷</div>
+
+                <div class="base firstInRow" onclick="addCharacter(4)">4</div>
+                <div class="base" onclick="addCharacter(5)">5</div>
+                <div class="base" onclick="addCharacter(6)">6</div>
+                <div class="base" onclick="addCharacter('×')">×</div>
+
+                <div class="base firstInRow" onclick="addCharacter(1)">1</div>
+                <div class="base" onclick="addCharacter(2)">2</div>
+                <div class="base" onclick="addCharacter(3)">3</div>
+                <div class="base" onclick="addCharacter('-')">-</div>
+
+                <div class="base firstInRow" onclick="addCharacter(0)">0</div>
+                <div class="base" onclick="clearResult();">C</div>
+                <div class="base" onclick="calculate()">=</div>
+                <div class="base" onclick="addCharacter('+')">+</div>
+            </div>
+
+
+    </div>
+    
+
+    <script type="text/javascript">
+        // ###############################################################
+        // ##                           Model                           ##
+        // ###############################################################
+
+        var resultBox = document.getElementById('resultBox');
+
+        let input="";
+
+        // ###############################################################
+        // ##                           View                            ##
+        // ###############################################################
+
+        function updateView() {
+            document.getElementById('resultBox').innerHTML = `
+                ${input}
+                `;
+        }
+
+        // ###############################################################
+        // ##                        Controller                         ##
+        // ###############################################################
+
+        function addCharacter(x) {
+            input += x;
+            updateView();
+        }
+
+        function calculate() {
+            var calculation = input
+                .replace('×', '*')
+                .replace('÷', '/');
+                input = eval(calculation);
+            updateView();
+        }
+
+        function clearResult() {
+            input = '';
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
