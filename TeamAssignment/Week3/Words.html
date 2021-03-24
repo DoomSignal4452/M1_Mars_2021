@@ -111,15 +111,15 @@
                 </div>
 
 
-                <p>En ${adjektiv1} elefant kom marsjerende,
-                bortover den ${adjektiv2}e edderkoppens ${adjektiv3}e spinn.
-                Syntes at veien var så ${adjektiv4}, 
-                at han ville ha med seg en annen ${adjektiv5} elefant!</p>
+                <p>En ${adjektiv[0]} elefant kom marsjerende,
+                bortover den ${adjektiv[1]}e edderkoppens ${adjektiv[2]}e spinn.
+                Syntes at veien var så ${adjektiv[3]}, 
+                at han ville ha med seg en annen ${adjektiv[4]} elefant!</p>
     
-                <p>To ${adjektiv6}e elefanter kom marsjerende, 
-                bortover den ${adjektiv7}e edderkoppens ${adjektiv8}e spinn.
-                Syntes at veien var så ${adjektiv9}, 
-                at de ville ha med seg en tredje ${adjektiv10} elefant!</p>
+                <p>To ${adjektiv[5]}e elefanter kom marsjerende, 
+                bortover den ${adjektiv[6]}e edderkoppens ${adjektiv[7]}e spinn.
+                Syntes at veien var så ${adjektiv[8]}, 
+                at de ville ha med seg en tredje ${adjektiv[9]} elefant!</p>
                 `;
 
 
@@ -137,20 +137,6 @@
 
             if (adjektiv.length === 10) {
                 disButtons = "disabled";
-                adjektiv1 = adjektiv[0];
-                adjektiv2 = adjektiv[1];
-
-                adjektiv3 = adjektiv[2];
-                adjektiv4 = adjektiv[3];
-
-                adjektiv5 = adjektiv[4];
-                adjektiv6 = adjektiv[5];
-
-                adjektiv7 = adjektiv[6];
-                adjektiv8 = adjektiv[7];
-
-                adjektiv9 = adjektiv[8];
-                adjektiv10 = adjektiv[9];
                 updateView();
             }
         }
