@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Words</title>
+
+    <style>
+        body {
+            background-color: #fbeec1;
+        }
+
+        p {
+            text-align: center;
+            font-family: courier, Arial, Helvetica;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        h1 {
+            border-top-style: inset;
+            border-top-color: rgb(255, 223, 80);
+            border-top-width: 10px;
+            text-align: center;
+        }
+
+        #myBorder {
+            border-style: solid;
+            border-top-style: inset;
+            border-bottom-style: solid;
+            border-top-color: rgb(255, 223, 80);
+            border-top-width: 10px;
+            font-size: 20px;
+            text-align: center;
+        }
+        button {
+            width: 100px;
+            margin: 5px;
+        }
+    </style>
+
+
+
+</head>
+
+<body>
+
+    <h1>Quiz</h1>
+
+    <div id="myBorder">Fill in the blanks!</div>
+
+
+    <div id="app"></div>
+
+
+
+
+    <script>
+
+        //      ###############################################################
+        //      ##                           Model                           ##
+        //      ###############################################################
+
+        // let adjektiv = ["selvsikker", "stor", "liten", "stripete", "glatt", "kjedelig", "mørk", "rettferdig", "ulykkelig", "fine", "interessant", "fremmed"];
+
+        let adjektiv = [];
+
+        let adjektiv1 = "";
+        let adjektiv2 = "";
+
+        let adjektiv3 = "";
+        let adjektiv4 = "";
+
+        let adjektiv5 = "";
+        let adjektiv6 = "";
+
+        let adjektiv7 = "";
+        let adjektiv8 = "";
+
+        let adjektiv9 = "";
+        let adjektiv10 = "";
+
+        let disButtons = "";
+
+        //      ###############################################################
+        //      ##                           View                            ##
+        //      ###############################################################
+
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+                <div>
+                    <p>Velg 10 Ord!</p>
+                    <button ${disButtons} id="selvsikker" onclick="putWord('selvsikker')">Selvsikker</button>
+                    <button ${disButtons} id="stor" onclick="putWord('stor')">Stor</button>
+                    <button ${disButtons} id="lys" onclick="putWord('lys')">Lys</button>
+                    <br>
+                    <button ${disButtons} id="stripete" onclick="putWord('stripete')">Stripete</button>
+                    <button ${disButtons} id="glatt" onclick="putWord('glatt')">Glatt</button>
+                    <button ${disButtons} id="kjedelig" onclick="putWord('kjedelig')">Kjedelig</button>
+                    <br>
+                    <button ${disButtons} id="mørk" onclick="putWord('mørk')">Mørk</button>
+                    <button ${disButtons} id="rettferdig" onclick="putWord('rettferdig')">Rettferdig</button>
+                    <button ${disButtons} id="ulykkelig" onclick="putWord('ulykkelig')">Ulykkelig</button>
+                    <br>
+                    <button ${disButtons} id="fin" onclick="putWord('fin')">Fin</button>
+                    <button ${disButtons} id="interessant" onclick="putWord('interessant')">Interessant</button>
+                    <button ${disButtons} id="fremmed" onclick="putWord('fremmed')">Fremmed</button>
+                </div>
+
+
+                <p>En ${adjektiv1} elefant kom marsjerende,
+                bortover den ${adjektiv2}e edderkoppens ${adjektiv3}e spinn.
+                Syntes at veien var så ${adjektiv4}, 
+                at han ville ha med seg en annen ${adjektiv5} elefant!</p>
+    
+                <p>To ${adjektiv6}e elefanter kom marsjerende, 
+                bortover den ${adjektiv7}e edderkoppens ${adjektiv8}e spinn.
+                Syntes at veien var så ${adjektiv9}, 
+                at de ville ha med seg en tredje ${adjektiv10} elefant!</p>
+                `;
+
+
+        }
+
+        //      ###############################################################
+        //      ##                        Controller                         ##
+        //      ###############################################################
+
+
+        function putWord(pressedButton) {
+
+            document.getElementById(pressedButton).disabled = true;
+            adjektiv.push(pressedButton);
+
+            if (adjektiv.length === 10) {
+                disButtons = "disabled";
+                adjektiv1 = adjektiv[0];
+                adjektiv2 = adjektiv[1];
+
+                adjektiv3 = adjektiv[2];
+                adjektiv4 = adjektiv[3];
+
+                adjektiv5 = adjektiv[4];
+                adjektiv6 = adjektiv[5];
+
+                adjektiv7 = adjektiv[6];
+                adjektiv8 = adjektiv[7];
+
+                adjektiv9 = adjektiv[8];
+                adjektiv10 = adjektiv[9];
+                updateView();
+            }
+        }
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
