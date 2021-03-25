@@ -21,23 +21,24 @@
 
         h1 {
             border-top-style: inset;
-            border-top-color: rgb(255, 223, 80);
-            border-top-width: 10px;
+            border: solid 10px rgb(126, 123, 111);
             text-align: center;
         }
 
-        #myBorder {
-            border-style: solid;
-            border-top-style: inset;
-            border-bottom-style: solid;
-            border-top-color: rgb(255, 223, 80);
-            border-top-width: 10px;
-            font-size: 20px;
-            text-align: center;
-        }
+       
         button {
             width: 100px;
             margin: 5px;
+        }
+        .buttonbox {
+            width: fit-content;
+            margin: auto;
+        }
+        .selectionbox {
+            width: 500px;
+            margin: auto;
+            border: solid 4px rgb(126, 123, 111);
+            padding-bottom: 20px;
         }
     </style>
 
@@ -47,11 +48,8 @@
 
 <body>
 
-    <h1>Quiz</h1>
-
-    <div id="myBorder">Fill in the blanks!</div>
-
-
+    <h1>Adjektiv Historie</h1>
+    
     <div id="app"></div>
 
 
@@ -69,15 +67,19 @@
 
         let disButtons = "";
 
+        let textfield="hidden";
+
         //      ###############################################################
         //      ##                           View                            ##
         //      ###############################################################
 
         updateView();
         function updateView() {
-            document.getElementById('app').innerHTML = `
-                <div>
+            if (textfield=="hidden") {
+                document.getElementById('app').innerHTML = `
+                <div class="selectionbox">
                     <p>Velg 10 Ord!</p>
+                    <div class="buttonbox">
                     <button ${disButtons} id="selvsikker" onclick="putWord('selvsikker')">Selvsikker</button>
                     <button ${disButtons} id="stor" onclick="putWord('stor')">Stor</button>
                     <button ${disButtons} id="lys" onclick="putWord('lys')">Lys</button>
@@ -93,19 +95,45 @@
                     <button ${disButtons} id="fin" onclick="putWord('fin')">Fin</button>
                     <button ${disButtons} id="interessant" onclick="putWord('interessant')">Interessant</button>
                     <button ${disButtons} id="fremmed" onclick="putWord('fremmed')">Fremmed</button>
+                    </div>
+                </div>
+                `;
+            } else {
+                document.getElementById('app').innerHTML = `
+                <div class="selectionbox">
+                    <p>Velg 10 Ord!</p>
+                    <div class="buttonbox">
+                    <button ${disButtons} id="selvsikker" onclick="putWord('selvsikker')">Selvsikker</button>
+                    <button ${disButtons} id="stor" onclick="putWord('stor')">Stor</button>
+                    <button ${disButtons} id="lys" onclick="putWord('lys')">Lys</button>
+                    <br>
+                    <button ${disButtons} id="stripete" onclick="putWord('stripete')">Stripete</button>
+                    <button ${disButtons} id="glatt" onclick="putWord('glatt')">Glatt</button>
+                    <button ${disButtons} id="kjedelig" onclick="putWord('kjedelig')">Kjedelig</button>
+                    <br>
+                    <button ${disButtons} id="mørk" onclick="putWord('mørk')">Mørk</button>
+                    <button ${disButtons} id="rettferdig" onclick="putWord('rettferdig')">Rettferdig</button>
+                    <button ${disButtons} id="ulykkelig" onclick="putWord('ulykkelig')">Ulykkelig</button>
+                    <br>
+                    <button ${disButtons} id="fin" onclick="putWord('fin')">Fin</button>
+                    <button ${disButtons} id="interessant" onclick="putWord('interessant')">Interessant</button>
+                    <button ${disButtons} id="fremmed" onclick="putWord('fremmed')">Fremmed</button>
+                    </div>
                 </div>
 
 
                 <p>En ${adjektiv[0]} elefant kom marsjerende,
-                bortover den ${adjektiv[1]}e edderkoppens ${adjektiv[2]}e spinn.
-                Syntes at veien var så ${adjektiv[3]}, 
-                at han ville ha med seg en annen ${adjektiv[4]} elefant!</p>
+                <br>bortover den ${adjektiv[1]}e edderkoppens ${adjektiv[2]}e spinn.
+                <br>Syntes at veien var så ${adjektiv[3]}, 
+                <br>at han ville ha med seg en annen ${adjektiv[4]} elefant!</p>
     
                 <p>To ${adjektiv[5]}e elefanter kom marsjerende, 
-                bortover den ${adjektiv[6]}e edderkoppens ${adjektiv[7]}e spinn.
-                Syntes at veien var så ${adjektiv[8]}, 
-                at de ville ha med seg en tredje ${adjektiv[9]} elefant!</p>
+                <br>bortover den ${adjektiv[6]}e edderkoppens ${adjektiv[7]}e spinn.
+                <br>Syntes at veien var så ${adjektiv[8]}, 
+                <br>at de ville ha med seg en tredje ${adjektiv[9]} elefant!</p>
                 `;
+            }
+
 
 
         }
@@ -122,6 +150,7 @@
 
             if (adjektiv.length === 10) {
                 disButtons = "disabled";
+                textfield="show"
                 updateView();
             }
         }

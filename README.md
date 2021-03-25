@@ -26,6 +26,8 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Enkel-statistikk.html">Enkel statistikk</a>
 <br>
 <h2>Valgsetninger, if (Uke 3)</h2>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave1.html">Sammenligne to tekster - Oppgave 1</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave2.html">Sammenligne to tekster - Oppgave 2</a>
 <br>
 <h2>Ukesoppgaver i Team</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/TeamAssignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>

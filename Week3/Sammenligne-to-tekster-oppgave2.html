@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Just a Simple Page</title>
+
+    <style>
+        button.lock {
+            outline: none;
+            background-color: #496463;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            transition-duration: 0.2s;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: 2px solid;
+            border-color: #496463;
+            box-shadow: 0 5px #999;
+        }
+
+        button.lock:hover {
+            background-color: #e7e7e7;
+            color: rgb(22, 36, 36);
+
+        }
+
+        button.lock:active {
+            /*background-color: #3e8e41;*/
+            box-shadow: 0 1px #666;
+            transform: translateY(4px);
+        }
+
+        button.lock:disabled {
+            background-color: #728d8c;
+            border-color: #728d8c;
+            color: rgb(209, 209, 209);
+        }
+
+        div.keypad {
+            background-color: lightgray;
+            border: 2px solid;
+            /* DO NOT FORGET TO SPECIFY WHAT SORT OF BORDER YOU WANT */
+            border-color: darkslategray;
+            border-radius: 5px;
+            padding: 10px;
+            width: 140px;
+            /* padding-bottom: 50px;*/
+        }
+
+        button.resetb {
+            outline: none;
+            background-color: #328380;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            transition-duration: 0.2s;
+            padding: 8px 12px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border: 2px solid;
+            border-color: #328380;
+            box-shadow: 0 5px #999;
+            width: 134px;
+        }
+
+        button.resetb:hover {
+            background-color: #e7e7e7;
+            color: rgb(22, 36, 36);
+
+        }
+
+        button.resetb:active {
+            /*background-color: #3e8e41;*/
+            box-shadow: 0 1px #666;
+            transform: translateY(4px);
+        }
+
+        p.keycode {
+            background-color: rgb(255, 255, 255);
+            border: 2px solid;
+            /* DO NOT FORGET TO SPECIFY WHAT SORT OF BORDER YOU WANT */
+            border-color: darkslategray;
+            border-radius: 3px;
+            padding: 2px;
+            height: 17px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="page">
+
+        <h2>Valgsetninger - Sammenligne to tekster: Oppgave 2</h1>
+
+            <div id="app" class="whitebox">
+
+                <div class="keypad">
+                    <button class="lock" onclick="keyPress(1)">1</button>
+                    <button class="lock" onclick="keyPress(2)">2</button>
+                    <button class="lock" onclick="keyPress(3)">3</button>
+                    <br>
+                    <button class="lock" onclick="keyPress(4)">4</button>
+                    <button class="lock" onclick="keyPress(5)">5</button>
+                    <button class="lock" onclick="keyPress(6)">6</button>
+                    <br>
+                    <button class="lock" onclick="keyPress(7)">7</button>
+                    <button class="lock" onclick="keyPress(8)">8</button>
+                    <button class="lock" onclick="keyPress(9)">9</button>
+
+                    <button class="resetb" id="clearkey" onclick="clearIt()">Reset</button>
+
+                    <p id="numbers" class="keycode"></p>
+                </div>
+
+                <div id="lockBox"></div>
+
+            </div>
+
+
+    </div>
+
+    <script>
+        // ###############################################################
+        // ##                          Model                            ##
+        // ###############################################################
+
+        let codeAttempt="";
+
+        // ###############################################################
+        // ##                          View                             ##
+        // ###############################################################
+
+        updateView();
+        function updateView() {
+            document.getElementById('numbers').innerHTML = `
+                ${codeAttempt}
+            `;
+        }
+
+        updateView2();
+        function updateView2() {
+            document.getElementById('lockBox').innerHTML = `
+                text
+            `;
+        }
+
+        // ###############################################################
+        // ##                       Controller                          ##
+        // ###############################################################
+
+        function keyPress(buttonNumber) {
+            if (codeAttempt.length<4) {
+                codeAttempt += buttonNumber;
+                if (codeAttempt.length==4&&codeAttempt==7519) {
+                document.getElementsByClassName('lock').disabled = true;
+                console.log('Correct')
+                } else if (codeAttempt.length==4&&codeAttempt!==7519) {
+                document.getElementsByClassName('lock').disabled = true;
+                console.log('Wrong')
+                }
+            } else {
+                document.getElementsByClassName('lock').disabled = true;
+            }
+
+            updateView();
+        }
+        function clearIt() {
+            codeAttempt = '';
+            updateView();
+        }
+
+    </script>
+</body>
+
+</html>
