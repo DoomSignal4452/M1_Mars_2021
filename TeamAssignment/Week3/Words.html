@@ -130,7 +130,6 @@
                     </div>
                 </div>
 
-
                 <p>En ${adjektiv[0]} elefant kom marsjerende,
                 <br>bortover den ${adjektiv[1]}${extraE1} edderkoppens ${adjektiv[2]}${extraE2} spinn.
                 <br>Syntes at veien var så ${adjektiv[3]}, 
@@ -152,8 +151,8 @@
         // ${disButtons} er en global variabel, når koden kjøres vil putte sin verdi der den står. (når siden laster inn vil den være blank)
         // onclick="putWord('selvsikker') - kaller funksjonen putword('selvsikker'), inholdet i () sendes som en parameter.
 
-        // id="selvsikker" i dette tilfallet har jeg også gitt alle knappene en id, som er lik parametern som sendes til putword()-funksjonen
-        // det gjør det lett å hente spesifikk knapp via id, men det er andre(og bedre) måter å gjøre dette på
+        // id="selvsikker" i dette tilfellet har jeg gitt alle knappene en id som er lik parametern som sendes til putword()-funksjonen
+        // det gjør det lett å hente spesifikk knapp via id, men det er andre(og bedre) måter å gjøre dette på, som ved bruk av 'this' som parameter
 
 
         //      ###############################################################
@@ -162,7 +161,7 @@
 
         function putWord(pressedButton) {
 // (pressedButton) vil si at funksjonen forventer en parameter, som den vil kalle "pressedButton"
-// pressedButton vil oppføre sen som en lokal variabel innad i denne funksjonen
+// pressedButton vil oppføre seg som en lokal variabel innad i denne funksjonen
 
             document.getElementById(pressedButton).disabled = true; // denne linjen finner et element med id, ved bruk av verdien til pressedButton
                                                                     // .disabled=true; vil disable knappen som ble funnet ved id.
@@ -174,11 +173,11 @@
                 if (adjektiv[2]=="stripete") {extraE2=""} // jeg la til dette siden alle de andre ordene trenger en 'e' på slutten ved noen tilfeller
                 if (adjektiv[5]=="stripete") {extraE3=""} // f.eks. en glatt elefant, men to glatte elefanter
                 if (adjektiv[6]=="stripete") {extraE4=""} // og det blir feil med; to stripetee elefanter, 
-                if (adjektiv[7]=="stripete") {extraE5=""} // disse fem linjene sjekker etter 'stripete' i de posisjonene og fjerner ekstra 'e'
+                if (adjektiv[7]=="stripete") {extraE5=""} // disse fem linjene passer på at det ikke blir ekstra 'e' når det ikke trengs
 
-                disButtons = "disabled";    // forandrer variabelen 'disButtons' til 'diabled', siden vi bruker MVC, 
+                disButtons = "disabled";    // forandrer variabelen 'disButtons' til 'disabled', siden vi bruker MVC, 
                                             // og denne variablen putter sin verdi der en er skrivd inn i koden ovenfor, 
-                                            // vil dette gjøre at alle knmappene blir disabled, når updateView() kjører
+                                            // dette vil gjøre at alle knappene blir disabled, når updateView() kjører
                 textfield="show" // forandrer variabelen 'textfield' til 'show'
                 updateView(); // kaller funksjonen updateView()
             }
