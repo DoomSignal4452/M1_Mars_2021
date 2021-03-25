@@ -61,13 +61,19 @@
         //      ##                           Model                           ##
         //      ###############################################################
 
-        // let adjektiv = ["selvsikker", "stor", "liten", "stripete", "glatt", "kjedelig", "mørk", "rettferdig", "ulykkelig", "fine", "interessant", "fremmed"];
 
-        let adjektiv = [];
+        let adjektiv = []; // et tomt array, det er her ordene lagres når knappene trykkes
 
-        let disButtons = "";
+        let disButtons = ""; // variabel som starter tom, er plassert inne i alle "button" taggene
 
-        let textfield="hidden";
+        let textfield="hidden"; // variabel som updateView() sjekker for a se hvilken del som skal vises
+
+        // disse fem variabelene legger til en e på slutten av noen ord som trenger det i noen tilfeller (mer om det i funksjonen på bånn)
+        let extraE1="e"
+        let extraE2="e"
+        let extraE3="e"
+        let extraE4="e"
+        let extraE5="e"
 
         //      ###############################################################
         //      ##                           View                            ##
@@ -75,7 +81,8 @@
 
         updateView();
         function updateView() {
-            if (textfield=="hidden") {
+            if (textfield=="hidden")  // når variabelen 'textfield' er 'hidden' vil denne delen av View vises
+            {
                 document.getElementById('app').innerHTML = `
                 <div class="selectionbox">
                     <p>Velg 10 Ord!</p>
@@ -98,7 +105,9 @@
                     </div>
                 </div>
                 `;
-            } else {
+            } 
+            else   // når variabelen 'textfield' ikke er 'hidden' vil denne delen av View vises
+            {
                 document.getElementById('app').innerHTML = `
                 <div class="selectionbox">
                     <p>Velg 10 Ord!</p>
@@ -123,12 +132,12 @@
 
 
                 <p>En ${adjektiv[0]} elefant kom marsjerende,
-                <br>bortover den ${adjektiv[1]}e edderkoppens ${adjektiv[2]}e spinn.
+                <br>bortover den ${adjektiv[1]}${extraE1} edderkoppens ${adjektiv[2]}${extraE2} spinn.
                 <br>Syntes at veien var så ${adjektiv[3]}, 
                 <br>at han ville ha med seg en annen ${adjektiv[4]} elefant!</p>
     
-                <p>To ${adjektiv[5]}e elefanter kom marsjerende, 
-                <br>bortover den ${adjektiv[6]}e edderkoppens ${adjektiv[7]}e spinn.
+                <p>To ${adjektiv[5]}${extraE3} elefanter kom marsjerende, 
+                <br>bortover den ${adjektiv[6]}${extraE4} edderkoppens ${adjektiv[7]}${extraE5} spinn.
                 <br>Syntes at veien var så ${adjektiv[8]}, 
                 <br>at de ville ha med seg en tredje ${adjektiv[9]} elefant!</p>
                 `;
@@ -138,22 +147,42 @@
 
         }
 
+        // I koden ovenfor er knappene skrivd in slik; <button ${disButtons} id="selvsikker" onclick="putWord('selvsikker')">Selvsikker</button>
+
+        // ${disButtons} er en global variabel, når koden kjøres vil putte sin verdi der den står. (når siden laster inn vil den være blank)
+        // onclick="putWord('selvsikker') - kaller funksjonen putword('selvsikker'), inholdet i () sendes som en parameter.
+
+        // id="selvsikker" i dette tilfallet har jeg også gitt alle knappene en id, som er lik parametern som sendes til putword()-funksjonen
+        // det gjør det lett å hente spesifikk knapp via id, men det er andre(og bedre) måter å gjøre dette på
+
+
         //      ###############################################################
         //      ##                        Controller                         ##
         //      ###############################################################
 
-
         function putWord(pressedButton) {
+// (pressedButton) vil si at funksjonen forventer en parameter, som den vil kalle "pressedButton"
+// pressedButton vil oppføre sen som en lokal variabel innad i denne funksjonen
 
-            document.getElementById(pressedButton).disabled = true;
-            adjektiv.push(pressedButton);
+            document.getElementById(pressedButton).disabled = true; // denne linjen finner et element med id, ved bruk av verdien til pressedButton
+                                                                    // .disabled=true; vil disable knappen som ble funnet ved id.
+            adjektiv.push(pressedButton); // denne linjen putter verdien til pressedButton inn i arrayet "adjektiv", ved bruk av kommandoen "push"
 
-            if (adjektiv.length === 10) {
-                disButtons = "disabled";
-                textfield="show"
-                updateView();
+            if (adjektiv.length === 10) // her sjekkes det at arrayet "adjektiv" inneholder 10 verdier(ord)
+            {
+                if (adjektiv[1]=="stripete") {extraE1=""} // her sjekkes det om 'adjektiv[1]' er ordet 'stripete', og hvis det er det gjør variabelen 'extraE1' blank
+                if (adjektiv[2]=="stripete") {extraE2=""} // jeg la til dette siden alle de andre ordene trenger en 'e' på slutten ved noen tilfeller
+                if (adjektiv[5]=="stripete") {extraE3=""} // f.eks. en glatt elefant, men to glatte elefanter
+                if (adjektiv[6]=="stripete") {extraE4=""} // og det blir feil med; to stripetee elefanter, 
+                if (adjektiv[7]=="stripete") {extraE5=""} // disse fem linjene sjekker etter 'stripete' i de posisjonene og fjerner ekstra 'e'
+
+                disButtons = "disabled";    // forandrer variabelen 'disButtons' til 'diabled', siden vi bruker MVC, 
+                                            // og denne variablen putter sin verdi der en er skrivd inn i koden ovenfor, 
+                                            // vil dette gjøre at alle knmappene blir disabled, når updateView() kjører
+                textfield="show" // forandrer variabelen 'textfield' til 'show'
+                updateView(); // kaller funksjonen updateView()
             }
-        }
+}
 
 
 
