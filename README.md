@@ -28,10 +28,11 @@ Just a Simple Page:
 <h2>Valgsetninger, if (Uke 3)</h2>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave1.html">Sammenligne to tekster - Oppgave 1</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave2.html">Sammenligne to tekster - Oppgave 2</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-flere-ting-på-en-gang-eller.html">Sammenligne flere ting på en gang (eller)</a>
 <br>
-<h2>Ukesoppgaver i Team</h2>
-<a href="https://doomsignal4452.github.io/M1_Mars_2021/TeamAssignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/TeamAssignment/Week3/Words.html">Teamoppgave: WordChooser Story!</a>
+<h2>Ukesoppgaver: Team 5</h2>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week3/Words.html">Teamoppgave: WordChooser Story!</a>
 
 
 

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../../normalize.css">
+    <link rel="stylesheet" href="../../style.css">
+
+    <title>Obligatorisk Oppgave 1</title>
+    <style>
+        /*
+            Obligatorisk Oppgave 1: 
+                - Skal være i Mvc (model, view, controller)
+                - Minst 1 Eventhandler (onclick etc.)
+                - Minst 1 If-setning  (med && eller || , eller begge)
+                - Minst en funksjon som returnerer en verdi
+                - Minst en funksjon som bruker parameter 
+
+                (ps. de to siste KAN være samme funksjon)
+
+                Minst 3 unit tester til sammen av funksjonene du bruker (ikke test mot view)
+        */
+.whitebox {
+    min-height: 500px;
+    padding-top: 20px;
+}
+
+.colourBox {
+    width: 352px;
+    height: 352px;
+    border-radius: 10px;
+    border: 2px solid rgb(112, 112, 112);
+    background-color: rgb(150, 158, 158);
+    margin: auto;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.colourChange {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    border: 2px solid rgb(59, 59, 59);
+    margin: 5px;
+    float: left;
+}
+
+.selected {
+    border: 2px solid rgb(214, 214, 214);
+}
+
+    </style>
+</head>
+<body>
+    <script src="Oblig_1_lib.js"></script>
+
+
+    <div class="page">
+
+        <h2>Obligatorisk Oppgave 1</h1>
+
+            <div class="whitebox">
+                <div id="app"></div>
+            </div>
+
+
+    </div>
+
+
+    <script>
+        // ###############################################################
+        // ##                          Model                            ##
+        // ###############################################################
+
+        let buttonPress=0;
+        let isPural="s";
+
+        let hasSelected=0;
+        let hasNotSelected=0;
+        let NeverSelected='';
+
+        let LastId='temp';
+        let currentId='';
+
+        let box1='';
+        let box2='';
+        let box3='';
+
+        let box4='';
+        let box5='';
+        let box6='';
+
+        let box7='';
+        let box8='';
+        let box9='';
+
+        let Colour1='';
+        let Colour2='';
+        let Colour3='';
+
+        let Colour4='';
+        let Colour5='';
+        let Colour6='';
+
+        let Colour7='';
+        let Colour8='';
+        let Colour9='';
+
+        // ###############################################################
+        // ##                          View                             ##
+        // ###############################################################
+
+        updateView();
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+                <button onclick="keyPress()">Change Colour!</button>
+                <p>Changed a box colour ${buttonPress} time${isPural}</p>
+
+                <div class="colourBox">
+                    <div id="box1" class="colourChange ${box1}" style="background-color: ${Colour1}" onclick="selectThis(this.id)"></div>
+                    <div id="box2" class="colourChange ${box2}" style="background-color: ${Colour2}" onclick="selectThis(this.id)"></div>
+                    <div id="box3" class="colourChange ${box3}" style="background-color: ${Colour3}" onclick="selectThis(this.id)"></div>
+
+                    <div id="box4" class="colourChange ${box4}" style="background-color: ${Colour4}" onclick="selectThis(this.id)"></div>
+                    <div id="box5" class="colourChange ${box5}" style="background-color: ${Colour5}" onclick="selectThis(this.id)"></div>
+                    <div id="box6" class="colourChange ${box6}" style="background-color: ${Colour6}" onclick="selectThis(this.id)"></div>
+                    
+                    <div id="box7" class="colourChange ${box7}" style="background-color: ${Colour7}" onclick="selectThis(this.id)"></div>
+                    <div id="box8" class="colourChange ${box8}" style="background-color: ${Colour8}" onclick="selectThis(this.id)"></div>
+                    <div id="box9" class="colourChange ${box9}" style="background-color: ${Colour9}" onclick="selectThis(this.id)"></div>
+                </div>
+                <p>${NeverSelected}</p>
+            `;
+            
+        }
+
+
+
+    </script>
+</body>
+</html>

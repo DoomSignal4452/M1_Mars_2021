@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Test Suite</title>
+    <link rel="stylesheet" href="https://code.jquery.com/qunit/qunit-2.14.0.css">
+</head>
+<body>
+    <div id="qunit"></div>
+    <div id="qunit-fixture"></div>
+    <script src="https://code.jquery.com/qunit/qunit-2.14.0.js"></script>
+    <script src="Oblig_1_lib.js"></script>
+
+    <script>
+        let buttonPress=0;
+        let isPural="s";
+
+        let hasSelected=0;
+        let hasNotSelected=0;
+        let NeverSelected='';
+
+        let LastId='temp';
+        let currentId='';
+
+        let box1='';
+        let box2='';
+        let box3='';
+
+        let box4='';
+        let box5='';
+        let box6='';
+
+        let box7='';
+        let box8='';
+        let box9='';
+
+        let Colour1='';
+        let Colour2='';
+        let Colour3='';
+
+        let Colour4='';
+        let Colour5='';
+        let Colour6='';
+
+        let Colour7='';
+        let Colour8='';
+        let Colour9='';
+
+    function updateView(){}
+
+
+
+    QUnit.test('"Change Colour!" has been pressed once', function(assert) {
+        keyPress();
+        assert.equal(buttonPress, 1);
+    });
+  
+    QUnit.test('Hitting 10 times of selected colour changes, with no random colour changes', function(assert) {
+        currentId='box4';
+        hasNotSelected=0;
+        hasSelected=9;
+        colourBoxSelected();
+        assert.equal(NeverSelected, 'You do not have to select a box to change colour');
+    });
+
+    QUnit.test('Hitting 10 times of random colour changes, with no selected colour changes', function(assert) {
+        hasSelected=0;
+        hasNotSelected=9;
+        colourBoxRandom();
+        assert.equal(NeverSelected, 'You can also select a box to change the colour of that specific box');
+    });
+
+    QUnit.test('function selectThis(), "currentId" value when re-clicking the selected box', function(assert) {
+        LastId='box3'
+        selectThis('box3')
+        assert.deepEqual(currentId, "");
+    });
+
+    QUnit.test('function selectThis(), "LastId" value when re-clicking the selected box', function(assert) {
+        LastId='box4'
+        selectThis('box4')
+        assert.deepEqual(LastId, "temp");
+    });
+
+
+    </script>
+</body>
+</html>

@@ -143,6 +143,7 @@
         // ###############################################################
 
         let codeAttempt="";
+        let lockText="Locked";
 
         // ###############################################################
         // ##                          View                             ##
@@ -158,7 +159,7 @@
         updateView2();
         function updateView2() {
             document.getElementById('lockBox').innerHTML = `
-                text
+                ${lockText}
             `;
         }
 
@@ -171,10 +172,11 @@
                 codeAttempt += buttonNumber;
                 if (codeAttempt.length==4&&codeAttempt==7519) {
                 document.getElementsByClassName('lock').disabled = true;
-                console.log('Correct')
+                console.log('Correct');
+                isCorrect();
                 } else if (codeAttempt.length==4&&codeAttempt!==7519) {
                 document.getElementsByClassName('lock').disabled = true;
-                console.log('Wrong')
+                console.log('Wrong');
                 }
             } else {
                 document.getElementsByClassName('lock').disabled = true;
@@ -185,6 +187,12 @@
         function clearIt() {
             codeAttempt = '';
             updateView();
+        }
+
+        function isCorrect() {
+            lockText="Open"
+
+            updateView2();
         }
 
     </script>
