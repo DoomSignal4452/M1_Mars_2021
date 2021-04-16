@@ -21,15 +21,16 @@ function isitemail(s) {
     if (mayBeEmail.includes("@") && dotBefore(s)==true && dotAfter(s)==true) {
         if (mayBeEmail.includes(" ")) {
             infoTXT="is not an email.";
+            updateView();
             return false;
         } else {
             infoTXT="is an email.";
+            updateView();
             return true;
         }
     } else {
         infoTXT="is not an email.";
+        updateView();
         return false;
     }
-
-    updateView();
 }
