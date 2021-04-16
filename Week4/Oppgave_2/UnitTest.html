@@ -13,39 +13,31 @@
     <script src="lib.js"></script>
     <script>
 
-let fixedTXT
-function updateView() {}
+    let mayBeEmail="";
+    let infoTXT=""
+
+    function updateView() {}
 
 
-        QUnit.test("fix - 'terje'", function (assert) {
-            const actual = fixText('terje');
-            const expected = 'Terje';
-            assert.equal(actual, expected);
-        });
+    QUnit.test("Is this an email - 'test@test'", function (assert) {
+        const actual = isitemail('test@test');
+        const expected = false;
+        assert.equal(actual, expected);
+    });
 
-        QUnit.test("fix - 'terje '", function (assert) {
-            const actual = fixText('terje ');
-            const expected = 'Terje';
-            assert.equal(actual, expected);
-        });
+    QUnit.test("Is this an email - 'te.st@test'", function (assert) {
+        const actual = isitemail('te.st@test');
+        const expected = false;
+        assert.equal(actual, expected);
+    });
 
-        QUnit.test("fix - ' terje'", function (assert) {
-            const actual = fixText(' terje');
-            const expected = 'Terje';
-            assert.equal(actual, expected);
-        });
+    QUnit.test("Is this an email - 'te.st@te.st'", function (assert) {
+        const actual = isitemail('te.st@te.st');
+        const expected = true;
+        assert.equal(actual, expected);
+    });
 
-        QUnit.test("fix - ' terje '", function (assert) {
-            const actual = fixText(' terje ');
-            const expected = 'Terje';
-            assert.equal(actual, expected);
-        });
 
-        QUnit.test("fix - ' TERJE '", function (assert) {
-            const actual = fixText(' TERJE ');
-            const expected = 'Terje';
-            assert.equal(actual, expected);
-        });
     </script>
 </body>
 </html>

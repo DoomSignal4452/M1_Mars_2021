@@ -24,6 +24,9 @@
             I tillegg: teksten skal inneholde et punktum før @. Og et punktum etter. Endre test og endre så funksjonen.
         */
 
+.whitebox {
+    height: 200px;
+}
     </style>
 
 </head>
@@ -45,28 +48,36 @@
 
     </div>
 
-
+    <script src="lib.js"></script>
     <script>
-
+        
 
 
         // ###############################################################
         // ##                          Model                            ##
         // ###############################################################
 
+        let mayBeEmail="";
 
-
+        let infoTXT="";
 
         // ###############################################################
         // ##                          View                             ##  <div></div>
         // ###############################################################
 
-        
         function updateView() {
             document.getElementById('app').innerHTML = `
-                <p></p>
-                <input type="text" onChange="fixText(this.value)">
-                <br><div>Din tekst her: '${fixedTXT}'</div>
+                <p>Du skal lage en enkel funksjon som tar en tekst som parameter og 
+                <br>returnerer true eller false ut fra om teksten er en epostadresse eller ikke.</p>
+
+                <p>    Teksten skal inneholde @. 
+                <br>    Teksten skal ikke inneholde mellomrom.
+                <br>    Teksten skal inneholde et punktum før @, og et punktum etter.</p>
+
+                <div><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/UnitTest.html">- Unit Test -</a></div>
+
+                <br><input type="text" onChange="isitemail(this.value)">
+                <br><div>${mayBeEmail} ${infoTXT}</div>
             `;
         }
         updateView();
