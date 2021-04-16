@@ -36,10 +36,12 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/Gjenkjenne-epostadresse.html">Oppgave: Gjenkjenne epostadresse</a>
 <br>
 <h2>Obligatorisk Oppgave 1 (Uke 4)</h2>
-<a href="#">--</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1.html">Oppgave: Rutenett som skifter farger</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1_UnitTest.html">- Unit Test</a>
 <br>
 <h2>Obligatorisk Oppgave 2 (Uke 6)</h2>
-<a href="#">--</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2.html">Oppgave: Stolpediagram</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2_UnitTest.html">- Unit Test</a>
 <br>
 <h2>Ukesoppgaver: Team 5</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
