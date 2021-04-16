@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Just a Simple Page</title>
+
+    <style>
+        /*
+            Gå gjennom eksemplet og kjør det på din egen pc.
+
+            Oppgave 1:
+            Skriv om til model-view-controller og bruk funksjoner for å unngå gjentakelser i koden.
+
+            Oppgave 2: 
+            Legg til et fyll til og få alt til å fungere som før.
+
+            Oppgave 3 
+            Legg så til enda en ting til i bestillingen, for eksempel firkantet eller rund pizza - og få igjen alt til å virke som forventet. 
+        */
+
+.selection {
+    text-align: left;
+}
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <h2>Valgsetninger - Sammenligne flere ting på en gang (både og og eller samtidig)</h1>
+
+            
+
+            <div class="whitebox">
+
+                <div id="app"></div>
+
+
+
+            </div>
+
+
+    </div>
+
+
+    <script>
+
+
+
+        // ###############################################################
+        // ##                          Model                            ##
+        // ###############################################################
+
+        let size="";
+        let bunn="";
+        let saus="";
+        let fyll="";
+
+        let disButton=true;
+        let infotxt="Gjør ett valg på hver linje:";
+
+        // ###############################################################
+        // ##                          View                             ##  <div></div>
+        // ###############################################################
+
+        
+        function updateView() {
+            document.getElementById('app').innerHTML = `
+                <h3>Pizza-bestilling</h3>
+
+                <div id="info" style="padding-bottom: 20px;">${infotxt}</div>
+
+                <div class="selection">Størrelse: 
+                    <input ${size == "storPizza" ? "checked" : ""} id="storPizza" type="radio" name="str" onchange="chooseSize(this.id)"> <label for="storPizza">Stor</label>
+                    <input ${size == "mediumPizza" ? "checked" : ""} id="mediumPizza" type="radio" name="str" onchange="chooseSize(this.id)"> <label for="mediumPizza">Medium</label>
+                    <input ${size == "litenPizza" ? "checked" : ""} id="litenPizza" type="radio" name="str" onchange="chooseSize(this.id)"> <label for="litenPizza">Liten</label>  </div>
+
+                <div class="selection">Bunn:   
+                    <input ${bunn == "tykkBunn" ? "checked" : ""} id="tykkBunn" type="radio" name="bunn" onchange="chooseBunn(this.id)"> <label for="tykkBunn">Tykk</label>
+                    <input ${bunn == "tynnBunn" ? "checked" : ""} id="tynnBunn" type="radio" name="bunn" onchange="chooseBunn(this.id)"> <label for="tynnBunn">Tynn</label>
+                    <input ${bunn == "innbakt" ? "checked" : ""} id="innbakt" type="radio" name="bunn" onchange="chooseBunn(this.id)"> <label for="innbakt">Innbakt</label>  </div>
+
+                <div class="selection">Saus:   
+                    <input ${saus == "sausTomat" ? "checked" : ""} id="sausTomat" type="radio" name="saus" onchange="chooseSaus(this.id)"> <label for="sausTomat">Tomat</label>
+                    <input ${saus == "sausHvit" ? "checked" : ""} id="sausHvit" type="radio" name="saus" onchange="chooseSaus(this.id)"> <label for="sausHvit">Hvit</label>
+                    <input ${saus == "sausPepper" ? "checked" : ""} id="checked" type="radio" name="saus" onchange="chooseSaus(this.id)"> <label for="checked">Pepper</label>  </div>
+
+                <div class="selection">Fyll:  
+                    <input ${fyll == "fyllTaco" ? "checked" : ""} id="fyllTaco" type="radio" name="fyll" onchange="chooseFyll(this.id)"> <label for="fyllTaco">Taco</label>
+                    <input ${fyll == "fyllKylling" ? "checked" : ""} id="fyllKylling" type="radio" name="fyll" onchange="chooseFyll(this.id)"> <label for="fyllKylling">Kylling</label>
+                    <input ${fyll == "fyllPepperoni" ? "checked" : ""} id="fyllPepperoni" type="radio" name="fyll" onchange="chooseFyll(this.id)"> <label for="fyllPepperoni">Pepperoni</label>  </div>
+
+
+
+                <br><button id="bestill" ${disButton ? "disabled" : ""} onclick="alert('Bestilt!');">Bestill</button>
+            `;
+        }
+        updateView();
+
+        // ###############################################################
+        // ##                       Controller                          ##
+        // ###############################################################
+
+
+        function chooseSize(selection) {
+            size=selection;
+            buildPizza()
+        }
+
+        function chooseBunn(selection) {
+            bunn=selection;
+            buildPizza()
+        }
+
+        function chooseSaus(selection) {
+            saus=selection;
+            buildPizza()
+        }
+
+        function chooseFyll(selection) {
+            fyll=selection;
+            buildPizza()
+        }
+
+        function buildPizza() {
+            if (size != "" && bunn != "" && fyll != "" && saus != "") {
+                infotxt="Du har fylt ut alt og er klar til å bestille!";
+                disButton=false;
+            } else {
+                infotxt="Du har ikke valgt:";
+                if (size=="") {infotxt += '<li>Størrelse</li>';}
+                if (bunn=="") {infotxt += '<li>Bunn</li>';}
+                if (saus=="") {infotxt += '<li>Saus</li>';}
+                if (fyll=="") {infotxt += '<li>Fyll</li>';}
+            }
+
+            updateView();
+        }
+
+
+    </script>
+</body>
+</html>

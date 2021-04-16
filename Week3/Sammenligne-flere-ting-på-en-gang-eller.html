@@ -22,6 +22,17 @@
             Bruk model-view-controller og funksjoner. 
         */
 
+#colourChange {
+    height: 100px;
+    width: 100px;
+    border: black solid 3px;
+    font-size: 500%;
+    margin: auto;
+}
+select {
+    margin-top: 10px;
+}
+
     </style>
 </head>
 <body>
@@ -30,9 +41,20 @@
 
         <h2>Valgsetninger - Sammenligne flere ting på en gang (eller)</h1>
 
-            <div id="app" class="whitebox">
+            
 
+            <div class="whitebox">
 
+                <div id="app"></div>
+
+                <select id="backgroundColour" onchange="colourDiv(this.value)">
+                    <option value="black">Black</option>
+                    <option value="darkblue">Dark Blue</option>
+                    <option value="darkgreen">Dark Green</option>
+                    <option value="lightgrey">Light Grey</option>
+                    <option value="lightgreen">Light Green</option>
+                    <option value="pink">Pink</option>
+                </select>
 
             </div>
 
@@ -45,16 +67,17 @@
         // ##                          Model                            ##
         // ###############################################################
 
-
+        let divBGcolor="black"
+        let divtxtColor="lightgrey"
 
         // ###############################################################
         // ##                          View                             ##
         // ###############################################################
 
-        //updateView();
+        updateView();
         function updateView() {
-            document.getElementById('numbers').innerHTML = `
-                ${codeAttempt}
+            document.getElementById('app').innerHTML = `
+                <div id="colourChange" style="color: ${divtxtColor}; border: ${divtxtColor} solid 3px; background-color: ${divBGcolor}">⍟</div>
             `;
         }
 
@@ -62,6 +85,15 @@
         // ###############################################################
         // ##                       Controller                          ##
         // ###############################################################
+
+        function colourDiv(newColour) {
+            divBGcolor=newColour;
+
+            if (divBGcolor=='black' || divBGcolor=='darkblue' || divBGcolor=='darkgreen') {
+                divtxtColor='lightgrey'
+            } else {divtxtColor='black'}
+            updateView();
+        }
 
 
     </script>

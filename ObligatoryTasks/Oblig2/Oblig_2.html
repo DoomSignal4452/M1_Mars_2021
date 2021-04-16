@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    <div id="content"> </div>
+    <script src="Oblig_2_lib.js"></script>
+
+
+    <script>
+    // hjelpevariable for både view og controller
+    var contentDiv = document.getElementById('content');
+
+    // model
+    let numbers = [7, 3, 1, 5, 8];
+    let chosenBar = ""; // Variabel for hvilken stolpe som er valgt
+    let inputValue; // Variabel for hva som er skrevet i input-feltet
+
+
+
+    // view
+    let disButton = "disabled"; // Om butten er disabled eller ikke.
+
+    updateView();
+    function updateView() {
+        let svgInnerHtml = '';
+        //hint hint variabel for om knappen skal være disabled eller  ""   - fix med variabel+if
+        for (let i = 0; i < numbers.length; i++) {
+            svgInnerHtml += createBar(numbers[i], i + 1);
+        }
+        // dette er hva som vises.
+
+        contentDiv.innerHTML = `
+            <svg id="chart" width="500" viewBox="0 0 80 100">
+                ${svgInnerHtml}
+            </svg><br/>
+            Valgt stolpe: <i>${chosenBar}</i>
+            <br />
+            Verdi:
+            <input type="number" min="0" max="15" oninput="inputValue = this.value" />
+            <button onclick="makeBar()">Legg til stolpe</button>
+            <button ${disButton} onclick="changeBar()">Endre valgt stolpe</button><br/>
+            <button ${disButton} onclick="deleteBar()">Fjerne valgt stolpe</button>
+            `;
+    }
+
+        // Onclick for å velge hvilken stolpe man ønsker å velge. ( choosenBar/ barNo / barBorder )
+
+    function createBar(number, barNo) {
+        const width = 8;
+        const spacing = 2;
+        let x = (barNo - 1) * (width + spacing);
+        let height = number * 10;
+        let y = 100 - height;
+        let color = calcColor(1, 10, barNo);
+        let barBorder = "";
+        if(chosenBar == barNo){
+            barBorder = "black"
+        }
+        return `<rect onclick="chooseBar(${barNo})" width="${width}" height="${height}"
+                            x="${x}" y="${y}" fill="${color}" stroke="${barBorder}"></rect>`;
+    }
+
+    function calcColor(min, max, val) {
+        var minHue = 240, maxHue = 0;
+        var curPercent = (val - min) / (max - min);
+        var colString = "hsl(" + ((curPercent * (maxHue - minHue)) + minHue) + ",100%,50%)";
+        return colString;
+    }
+       
+       
+
+    </script>
+</body>
+
+</html>

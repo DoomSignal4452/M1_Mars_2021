@@ -26,13 +26,25 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Enkel-statistikk.html">Enkel statistikk</a>
 <br>
 <h2>Valgsetninger, if (Uke 3)</h2>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave1.html">Sammenligne to tekster - Oppgave 1</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave1.html">Sammenligne to tekster - Oppgave 1</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-to-tekster-oppgave2.html">Sammenligne to tekster - Oppgave 2</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-flere-ting-på-en-gang-eller.html">Sammenligne flere ting på en gang (eller)</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-flere-ting-på-en-gang-og-eller.html">Sammenligne flere ting på en gang (både og og eller samtidig)</a>
+<br>
+<h2>Funksjoner og unit testing (Uke 4)</h2>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_1/Formatering-av-tekst.html">Oppgave: Formatering av tekst</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/Gjenkjenne-epostadresse.html">Oppgave: Gjenkjenne epostadresse</a>
+<br>
+<h2>Obligatorisk Oppgave 1 (Uke 4)</h2>
+<a href="#">--</a>
+<br>
+<h2>Obligatorisk Oppgave 2 (Uke 6)</h2>
+<a href="#">--</a>
 <br>
 <h2>Ukesoppgaver: Team 5</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week3/Words.html">Teamoppgave: WordChooser Story!</a>
+
 
 
 
