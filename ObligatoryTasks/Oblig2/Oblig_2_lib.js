@@ -4,7 +4,7 @@
 function chooseBar(barNo) {
     if (chosenBar == barNo) {
         chosenBar = "";
-
+        disButton = "disabled";
     }
     else {
         chosenBar = barNo;
