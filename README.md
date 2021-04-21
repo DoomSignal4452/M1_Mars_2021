@@ -31,6 +31,10 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-flere-ting-på-en-gang-eller.html">Sammenligne flere ting på en gang (eller)</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-flere-ting-på-en-gang-og-eller.html">Sammenligne flere ting på en gang (både og og eller samtidig)</a>
 <br>
+<h2>Oppgaver i Code2flow (Uke 3)</h2>
+Oppgave 1<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Code2flow.txt"> - skript</a><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Code2flow1.PNG"> - chart</a>
+<br><a href="#">Oppgave 2</a>
+<br>
 <h2>Funksjoner og unit testing (Uke 4)</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_1/Formatering-av-tekst.html">Oppgave: Formatering av tekst</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/Gjenkjenne-epostadresse.html">Oppgave: Gjenkjenne epostadresse</a>
