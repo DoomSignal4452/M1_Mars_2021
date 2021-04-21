@@ -32,20 +32,21 @@ Just a Simple Page:
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week3/Sammenligne-flere-ting-på-en-gang-og-eller.html">Sammenligne flere ting på en gang (både og og eller samtidig)</a>
 <br>
 <h2>Oppgaver i Code2flow (Uke 3)</h2>
-Oppgave 1 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/Code2flow-1.txt">script</a> - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/code2flow1.PNG">chart</a>
-<br>Oppgave 2 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/Code2flow-2.txt">script</a> - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/code2flow2.PNG">chart</a>
+Oppgave 1 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/Code2flow-1.txt">Script</a> - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/code2flow1.PNG">Chart</a>
+<br>Oppgave 2 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/Code2flow-2.txt">Script</a> - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/Week3/code2flow2.PNG">Chart</a>
 <br>
 <h2>Funksjoner og unit testing (Uke 4)</h2>
-<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_1/Formatering-av-tekst.html">Oppgave: Formatering av tekst</a>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/Gjenkjenne-epostadresse.html">Oppgave: Gjenkjenne epostadresse</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_1/Formatering-av-tekst.html">Oppgave: Formatering av tekst</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_1/UnitTest.html">UnitTest</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/Gjenkjenne-epostadresse.html">Oppgave: Gjenkjenne epostadresse</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/Week4/Oppgave_2/UnitTest.html">UnitTest</a>
 <br>
 <h2>Obligatorisk Oppgave 1 (Uke 4)</h2>
-<a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1.html">Oppgave: Rutenett som skifter farger</a>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1_UnitTest.html">- Unit Test</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1.html">Oppgave: Rutenett som skifter farger</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1_UnitTest.html">Unit Test</a>
+<br>
+<h2>Lister og løkker (Uke 5)<h2>
+<a href="#">--</a>
 <br>
 <h2>Obligatorisk Oppgave 2 (Uke 6)</h2>
-<a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2.html">Oppgave: Stolpediagram</a>
-<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2_UnitTest.html">- Unit Test</a>
+<a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2.html">Oppgave: Stolpediagram</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2_UnitTest.html">Unit Test</a>
 <br>
 <h2>Ukesoppgaver: Team 5</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
