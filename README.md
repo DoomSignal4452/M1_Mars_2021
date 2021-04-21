@@ -42,7 +42,7 @@ Oppgave 1 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/We
 <h2>Obligatorisk Oppgave 1 (Uke 4)</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1.html">Oppgave: Rutenett som skifter farger</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1_UnitTest.html">Unit Test</a>
 <br>
-<h2>Lister og løkker (Uke 5)<h2>
+<h2>Lister og løkker (Uke 5)</h2>
 <a href="#">--</a>
 <br>
 <h2>Obligatorisk Oppgave 2 (Uke 6)</h2>
