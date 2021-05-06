@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Just a Simple Page</title>
+
+    <style>
+/*
+Oppgave - Tallpuslespill
+
+Ta utgangspunkt i tallpuslespillet fra opptaksoppgaven - og skriv det om til å bruke Model View Controller.
+
+Her er utgangspunktet: github.com/GetAcademy/StartIT/blob/master/NumberPuzzle/UtenMvc.html
+
+Løsningsforslag her: github.com/GetAcademy/StartIT/blob/master/NumberPuzzle/MedMvc.html
+*/
+
+div.whitebox {
+    height: 250px;
+}
+
+div.boxwrapper {
+    width: fit-content;
+    margin: auto;
+}
+
+div.box {
+    color: blue;
+    background-color: azure;
+    padding: 10px;
+    margin: 10px;
+    border: solid cornflowerblue 5px;
+    width: 20px;
+    height: 20px;
+    float: left;
+}
+
+div.førstPåLinja {
+    clear: left;
+}
+
+    </style>
+</head>
+<body>
+
+
+    <div class="page">
+
+        <h2>Oppgave - Tallpuslespill</h1>
+
+
+
+            <div id="app" class="whitebox"></div>
+
+
+    </div>
+
+    <script>
+
+        // ###############################################################
+        // ##                          Model                            ##
+        // ############################################################### 
+
+let Board = ['7','1','2','5','','3','8','4','6'];
+const BoardComp = ['1','2','3','4','5','6','7','8',''];
+
+        // ###############################################################
+        // ##                          View                             ##
+        // ###############################################################
+
+updateView();
+function updateView() {
+    document.getElementById('app').innerHTML = `
+        <div class="boxwrapper">
+
+            <div id="r1k1" class="box"                  onclick="moveNumber(0, 3, 1, '_', '_')"  >${Board[0]}</div>
+            <div id="r1k2" class="box"                  onclick="moveNumber(1, 0, 4,  5,  '_')"  >${Board[1]}</div>
+            <div id="r1k3" class="box"                  onclick="moveNumber(2, 1, 5, '_', '_')"  >${Board[2]}</div>
+
+            <div id="r2k1" class="box førstPåLinja"     onclick="moveNumber(3, 4, 0,  6,  '_')"  >${Board[3]}</div>
+            <div id="r2k2" class="box"                  onclick="moveNumber(4, 3, 1,  5,   7 )"  >${Board[4]}</div>
+            <div id="r2k3" class="box"                  onclick="moveNumber(5, 2, 4,  8,  '_')"  >${Board[5]}</div>
+
+            <div id="r3k1" class="box førstPåLinja"     onclick="moveNumber(6, 3, 7, '_', '_')"  >${Board[6]}</div>
+            <div id="r3k2" class="box"                  onclick="moveNumber(7, 6, 4,  8,  '_')"  >${Board[7]}</div>
+            <div id="r3k3" class="box"                  onclick="moveNumber(8, 7, 5, '_', '_')"  >${Board[8]}</div>
+
+        </div>
+        `;
+}
+
+        // ###############################################################
+        // ##                       Controller                          ##
+        // ###############################################################
+
+function moveNumber(BoardIndex, alt1, alt2, alt3, alt4) {
+    if (Board[alt1] == '') {
+        Board[alt1] = Board[BoardIndex];
+        Board[BoardIndex] = '';
+    }
+
+    if (Board[alt2] == '') {
+        Board[alt2] = Board[BoardIndex];
+        Board[BoardIndex] = '';
+    }
+
+    if (Board[alt3] == '') {
+        Board[alt3] = Board[BoardIndex];
+        Board[BoardIndex] = '';
+    }
+
+    if (Board[alt4] == '') {
+        Board[alt4] = Board[BoardIndex];
+        Board[BoardIndex] = '';
+    }
+    isDone();
+    updateView();
+}
+
+function isDone() {
+    if (Board.toString() === BoardComp.toString()) {
+        Board = ['1','2','3','4','5','6','7','8','9'];
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

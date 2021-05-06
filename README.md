@@ -43,7 +43,10 @@ Oppgave 1 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/We
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1.html">Oppgave: Rutenett som skifter farger</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig1/Oblig_1_UnitTest.html">Unit Test</a>
 <br>
 <h2>Lister og løkker (Uke 5)</h2>
-<a href="#">--</a>
+<a href="#">Oppgave - Gangetabellen</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week5/Oppgave2v2-Tre-paa-rad.html">Oppgave - Tre på rad med løsning</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week5/Oppgave3-Tallpuslespill.html">Oppgave - Tallpuslespill</a>
+<br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Week5/Oppgave4-Reaksjonstid.html">Oppgave - Reaksjonstid</a>
 <br>
 <h2>Obligatorisk Oppgave 2 (Uke 6)</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2.html">Oppgave: Stolpediagram</a> - <a href="https://doomsignal4452.github.io/M1_Mars_2021/ObligatoryTasks/Oblig2/Oblig_2_UnitTest.html">Unit Test</a>

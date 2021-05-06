@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Just a Simple Page</title>
+
+    <style>
+/*
+Oppgave - Reaksjonstid
+
+Lag en updateView()-funksjon som lager 25 sirkler ved hjelp av 25 DIV-er med en bakrunnsfarge du velger selv, 
+og en sirkulær ramme (border-radius: 50%). Sett bredde og høyde til noe passende. Vis dem i 5 rader a 5 sirkler. 
+
+Lag en egen css class for dette, kall den for eksempel "lamp". 
+
+Lag en css class "lightOn" med gul farge. Lag en kontroller-funksjon som endrer en variabel selectedLampIndex 
+i modellen til et tilfeldig tall under 25 og så kaller updateView(). Endre den slik at riktig lampe lyser opp. 
+
+Sørg for å kalle kontroller-funksjonen når siden laster. 
+
+Legg til en onclick kun på den knappen som lyser - og koble den til en kontroller-funksjonen du lagde i forrige punkt. 
+
+Forsøk å måle og vise tiden det tok fra en lampe lyste opp til brukeren trykket på den. Her er noen hint, men finn ut selv hvor i koden du legger dette:
+var startTime = new Date().getTime();
+var finishTime = new Date().getTime();
+var spentMilliseconds = Math.floor(finishTime - startTime);
+var spentSeconds = spentMilliseconds / 1000;
+*/
+
+.circleDivWrap {
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+}
+
+.circleDiv {
+    background-color: darkslateblue;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+}
+
+.lightsOn {
+    background-color: goldenrod;
+}
+
+.text {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+    </style>
+</head>
+<body>
+
+
+    <div class="page">
+
+        <h2>Oppgave - Reaksjonstid</h1>
+
+            
+
+            <div id="app" class="whitebox"></div>
+
+
+    </div>
+
+    <script>
+        // ###############################################################
+        // ##                          Model                            ##
+        // ############################################################### 
+
+let LightIndex;
+
+let selectedLampIndex = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+
+let singleOnClick = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
+
+let startTime='';
+let finishTime;
+let spentMilliseconds;
+let spentSeconds;
+
+let TimeToClick='Click the yellow dot!';
+
+        // ###############################################################
+        // ##                          View                             ##
+        // ############################################################### <div class="circleDiv"></div>
+
+updateView();
+function updateView() {
+    document.getElementById('app').innerHTML = `
+    <div class="circleDivWrap">
+
+        <div class="circleDiv ${selectedLampIndex[0]}" ${singleOnClick[0]}></div>
+        <div class="circleDiv ${selectedLampIndex[1]}" ${singleOnClick[1]}></div>
+        <div class="circleDiv ${selectedLampIndex[2]}" ${singleOnClick[2]}></div>
+        <div class="circleDiv ${selectedLampIndex[3]}" ${singleOnClick[3]}></div>
+        <div class="circleDiv ${selectedLampIndex[4]}" ${singleOnClick[4]}></div>
+
+        <div class="circleDiv ${selectedLampIndex[5]}" ${singleOnClick[5]}></div>
+        <div class="circleDiv ${selectedLampIndex[6]}" ${singleOnClick[6]}></div>
+        <div class="circleDiv ${selectedLampIndex[7]}" ${singleOnClick[7]}></div>
+        <div class="circleDiv ${selectedLampIndex[8]}" ${singleOnClick[8]}></div>
+        <div class="circleDiv ${selectedLampIndex[9]}" ${singleOnClick[9]}></div>
+
+        <div class="circleDiv ${selectedLampIndex[10]}" ${singleOnClick[10]}></div>
+        <div class="circleDiv ${selectedLampIndex[11]}" ${singleOnClick[11]}></div>
+        <div class="circleDiv ${selectedLampIndex[12]}" ${singleOnClick[12]}></div>
+        <div class="circleDiv ${selectedLampIndex[13]}" ${singleOnClick[13]}></div>
+        <div class="circleDiv ${selectedLampIndex[14]}" ${singleOnClick[14]}></div>
+
+        <div class="circleDiv ${selectedLampIndex[15]}" ${singleOnClick[15]}></div>
+        <div class="circleDiv ${selectedLampIndex[16]}" ${singleOnClick[16]}></div>
+        <div class="circleDiv ${selectedLampIndex[17]}" ${singleOnClick[17]}></div>
+        <div class="circleDiv ${selectedLampIndex[18]}" ${singleOnClick[18]}></div>
+        <div class="circleDiv ${selectedLampIndex[19]}" ${singleOnClick[19]}></div>
+
+        <div class="circleDiv ${selectedLampIndex[20]}" ${singleOnClick[20]}></div>
+        <div class="circleDiv ${selectedLampIndex[21]}" ${singleOnClick[21]}></div>
+        <div class="circleDiv ${selectedLampIndex[22]}" ${singleOnClick[22]}></div>
+        <div class="circleDiv ${selectedLampIndex[23]}" ${singleOnClick[23]}></div>
+        <div class="circleDiv ${selectedLampIndex[24]}" ${singleOnClick[24]}></div>
+
+    </div>
+    <div class="text">${TimeToClick}</div>
+    `;
+}
+
+        // ###############################################################
+        // ##                       Controller                          ##
+        // ###############################################################
+/* 
+let startTime = new Date().getTime();
+let finishTime = new Date().getTime();
+let spentMilliseconds = Math.floor(finishTime - startTime);
+let spentSeconds = spentMilliseconds / 1000;
+ */
+
+
+
+ChangeLight()
+function ChangeLight() {
+    if (selectedLampIndex[LightIndex]='lightsOn') {
+        selectedLampIndex[LightIndex]='';
+        singleOnClick[LightIndex]='';
+        
+    }
+    finishTime = new Date().getTime();
+    if (startTime!='') {
+        spentMilliseconds = Math.floor(finishTime - startTime);
+        spentSeconds = spentMilliseconds / 1000;
+
+        TimeToClick=`It took ${spentSeconds} seconds to click the yellow dot!`;
+        console.log(spentSeconds + ' Seconds')
+    }
+    LightIndex=Number0toLength();
+
+    selectedLampIndex[LightIndex]='lightsOn';
+    singleOnClick[LightIndex]='onclick="ChangeLight()"';
+    startTime = new Date().getTime();
+    updateView();
+}
+
+function Number0toLength() {
+    return Math.floor(Math.random() * selectedLampIndex.length);
+}
+
+    </script>
+</body>
+</html>

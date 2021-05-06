@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../style.css">
+
+    <title>Just a Simple Page</title>
+
+    <style>
+/*
+Oppgave - Tre på rad med løsning
+
+Ta utgangspunkt i HTML og CSS fra løsningsforslaget til tre-på-rad-oppgaven fra tidligere: https://github.com/GetAcademy/StartIT/blob/master/Tre%20p%C3%A5%20rad/game.html
+
+Nå skal du skrive om dette til MVC - og legge til at programmet kjenner igjen om noen har vunnet. 
+
+1.  Modellen skal være en array med tekster, for eksempel var board = ['x','o','', '','','', '','','' ]; om spillet er i gang og x og o har spilt en gang hver.
+    Lag en funksjon showBoard() som lager HTML-koden for hele brettet ut fra variabelen `board` og som så viser det på skjermen.
+
+2.  På hver rute skal du så lage en onclick som kaller en funksjon setX() med indeksen til ruten som paramneter. 
+    Denne funksjonen skal legge til en x i riktig posisjon i board dersom det ikke er noe der fra før. 
+    Så skal den kalle showBoard() for å vise frem det oppdaterte brettet.
+
+3.  Umiddelbart før kallet på showBoard(), skal du så kalle setRandomO(). 
+    Lag så den funksjonen. Den skal sette en o i en tilfeldig blank rute. 
+
+    Array.from(board.keys()).filter(i=>board[i]==='') gir deg en liste over alle indeksene til de tomme rutene. 
+
+    Lagre det i en variabel og trekk ut en tilfeldig blank indeks. Legg så en o i board i den indeksen.
+
+4.  Lag en egen funksjon for å sjekke om noen har vunnet og kall den checkWinning() 
+    Kall denne rett etter koden som setter en x i en rute OG rett etter koden som setter en o i en rute. 
+    Legg til en global variabel som sier om noen har vunnet, og lagre resultatet av hvert kall på checkWinning() i denne. 
+    Variabelen kan inneholde blank om ingen har vunnet, 'x' om x har vunnet og o om o har vunnet. 
+
+5.  Endre showBoard() slik at den viser teksten "Du vant!" eller tilsvarende om noen har vunnet.
+    Sjekk ut kapittel 8 (problemløsningsteknikker) i Terjes bok for å finne ut hvordan du skal implementere checkWinning()
+    Endre programmet slik at om noen har vunnet, så får man ikke lagt til verken x eller o. 
+    Legg også til en knapp for å restarte. Den skal bare sette board = ['','','', '','','', '','','' ]; og kalle showBoard().
+*/
+div.whitebox {
+    height: 400px;
+
+}
+
+div.boxwrapper {
+    width: fit-content;
+    margin: auto;
+}
+
+div.text {
+    color: green;
+    background-color: lightgray;
+    width: 100px;
+    height: 100px;
+    float: left;
+    margin: 2px;
+    font-size: 500%;
+    font-family: helvetica;
+    text-align: center;
+    vertical-align: middle;
+}
+
+div.first {
+    clear: left;
+}
+
+div.isX {
+    color: crimson;
+}
+
+div.isO {
+    color: darkblue;
+}
+
+
+    </style>
+</head>
+<body>
+
+
+    <div class="page">
+
+        <h2>Oppgave - Tre på rad med løsning</h1>
+
+
+            <div id="app" class="whitebox"></div>
+
+
+    </div>
+
+    <script type="text/javascript">
+
+        // ###############################################################
+        // ##                          Model                            ##
+        // ############################################################### 
+
+let board = ['','','','','','','','',''];
+
+let boardEmpty=[];
+
+let WinStatus='Game in progress!';
+
+let textColor=['','','','','','','','','']
+
+        // ###############################################################
+        // ##                          View                             ##
+        // ###############################################################
+
+showBoard();
+function showBoard() {
+    document.getElementById('app').innerHTML = `
+        <div class="boxwrapper">
+            <div onclick="setX(0)" class="first text ${textColor[0]}">${board[0]}</div>
+            <div onclick="setX(1)" class="text ${textColor[1]}">${board[1]}</div>
+            <div onclick="setX(2)" class="text ${textColor[2]}">${board[2]}</div>
+
+            <div onclick="setX(3)" class="first text ${textColor[3]}">${board[3]}</div>
+            <div onclick="setX(4)" class="text ${textColor[4]}">${board[4]}</div>
+            <div onclick="setX(5)" class="text ${textColor[5]}">${board[5]}</div>
+
+            <div onclick="setX(6)" class="first text ${textColor[6]}">${board[6]}</div>
+            <div onclick="setX(7)" class="text ${textColor[7]}">${board[7]}</div>
+            <div onclick="setX(8)" class="text ${textColor[8]}">${board[8]}</div>
+            <div>${WinStatus}</div>
+            
+        </div>
+        `;
+}
+
+        // ###############################################################
+        // ##                       Controller                          ##
+        // ###############################################################
+
+function setX(s) {
+    if (WinStatus!='Game in progress!') {return;}
+    else if (board[s] == '') {
+        
+        board[s]='x';
+        textColor[s]='isX';
+        
+        checkWinning();
+
+        boardEmpty=Array.from(board.keys()).filter(i=>board[i]==='')
+        console.log(boardEmpty);
+
+        setRandom();
+        checkWinning();
+
+        showBoard();
+    }
+    else {return;}
+
+}
+
+function setRandom() {
+    if (WinStatus!='Game in progress!') {return;}
+
+    board[boardEmpty[Number0toBoardLength()]]='o';
+
+}
+
+function Number0toBoardLength() {
+    return Math.floor(Math.random() * boardEmpty.length);
+}
+
+function checkWinning() {
+    if (board[0]!='' & board[0]==board[1] & board[1]==board[2]) {
+        WinStatus=`The winner is ${board[0]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+    else if (board[3]!='' & board[3]==board[4] & board[4]==board[5]) {
+        WinStatus=`The winner is ${board[3]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+    else if (board[6]!='' & board[6]==board[7] & board[7]==board[8]) {
+        WinStatus=`The winner is ${board[6]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+
+    else if (board[0]!='' & board[0]==board[3] & board[3]==board[6]) {
+        WinStatus=`The winner is ${board[0]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+    else if (board[1]!='' & board[1]==board[4] & board[4]==board[7]) {
+        WinStatus=`The winner is ${board[1]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+    else if (board[2]!='' & board[2]==board[5] & board[5]==board[8]) {
+        WinStatus=`The winner is ${board[2]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+
+    else if (board[0]!='' & board[0]==board[4] & board[4]==board[8]) {
+        WinStatus=`The winner is ${board[0]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+    else if (board[2]!='' & board[2]==board[4] & board[4]==board[6]) {
+        WinStatus=`The winner is ${board[2]}!<br><button  onclick="resetGame()">Reset</button>`
+    }
+
+    else if (board[0]!='' & board[1]!='' & board[2]!='' & board[3]!='' & board[4]!='' & board[5]!='' & board[6]!='' & board[7]!='' & board[8]!='') {
+        WinStatus=`There is no winner...<br><button  onclick="resetGame()">Reset</button>`;
+    }
+}
+
+function resetGame() {
+    board = ['','','','','','','','',''];
+    textColor=['','','','','','','','','']
+    WinStatus='Game in progress!';
+    showBoard();
+}
+
+    </script>
+</body>
+</html>
