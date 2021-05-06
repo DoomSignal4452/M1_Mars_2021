@@ -28,6 +28,14 @@ For å få til dette trenger du to for-løkker inne i hverandre,
 hvor den ene teller fra 1 til valgt størrelse for tall1 og den andre gjør det samme for tall2.
 */
 
+.page {
+    max-width: fit-content;
+}
+
+.whitebox {
+    min-width: 600px;
+    max-width: fit-content;
+}
 
     </style>
 </head>
@@ -41,7 +49,7 @@ hvor den ene teller fra 1 til valgt størrelse for tall1 og den andre gjør det 
 
             <div id="app" class="whitebox">
 
-                <input type="range" min="1" max="100" value="5"/>
+                <input type="range" min="1" max="100" value="5" oninput="changeColumnCount(this.value)"/>
                 <div id="multiplicationMatrix"></div>
 
             </div>
@@ -89,12 +97,7 @@ function updateView() {
         // ##                       Controller                          ##
         // ###############################################################
 
-        
 
-
-
-
-/* 
         function changeColumnCount(value) {
             columnCount = value;
             multiplicationMatrix = [];
@@ -103,9 +106,9 @@ function updateView() {
                     multiplicationMatrix.push(n1 * n2);
                 }
             }
-            show();
+            updateView();
         }
- */
+
     </script>
 </body>
 </html>
