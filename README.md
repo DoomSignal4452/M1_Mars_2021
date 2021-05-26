@@ -54,7 +54,10 @@ Oppgave 1 - <a href="https://github.com/DoomSignal4452/M1_Mars_2021/blob/main/We
 <h2>Ukesoppgaver: Team 5</h2>
 <a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week2/Squares.html">Første Teamoppgave: Rutenett!</a>
 <br><a href="https://doomsignal4452.github.io/M1_Mars_2021/Team5Assignment/Week3/Words.html">Teamoppgave: WordChooser Story!</a>
-
+<br>
+<h2>Ukesoppgaver: Team 4</h2>
+<a href="https://geta-team4.github.io/projects/weeklies/week06/index.html">Teamoppgave: Morse Generator!</a>
+<br><a href="https://geta-team4.github.io/projects/weeklies/week07/index.html">Teamoppgave: NPC Fight Spill!</a>
 
 
 
